@@ -9,13 +9,13 @@
     height: 0;
 }
 
-.min-width {
-    min-width: 1200px;
-}
-
-.header-wrap {
+.w {
     width: 1200px;
     margin: 0 auto;
+}
+
+.min-width {
+    min-width: 1200px;
 }
 
 
@@ -28,7 +28,6 @@
 }
 
 .nav {
-    width: 1200px;
     font-family: PingFang-SC-Bold;
     font-size: 18px;
     font-weight: normal;
@@ -61,4 +60,101 @@
 .banner-wrap img {
     width: 100%;
     height: 581px;
+}
+
+
+/* 公共title */
+
+.title-wrap {
+    height: 20px;
+    margin: 10px auto;
+    border-left: 3px solid #881b1d;
+    padding-left: 10px;
+}
+
+.title-wrap .title {
+    float: left;
+}
+
+.title-wrap .more {
+    float: right;
+    color: #333333;
+    text-decoration: none;
+}
+
+.title-wrap .more:hover {
+    text-decoration: underline;
+}
+
+
+/* 信息列表 */
+
+.info-list {
+    padding: 20px 0;
+}
+
+.info-list .item {
+    width: 343px;
+    height: 211px;
+    float: left;
+}
+
+.info-list .item .cover-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-list .item .img {
+    width: 343px;
+    height: 211px;
+}
+
+.info-list .item .cover-bg .type {
+    width: 343px;
+    height: 211px;
+    transition: all 4s;
+    text-align: center;
+    line-height: 211px;
+    background-color: #000000;
+    opacity: 0.72;
+    position: absolute;
+    left: 0;
+    top: -211px;
+    font-family: PingFang-SC-Medium;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.info-list .item .cover-bg:hover .type {
+    top: 0;
+}
+
+.info-list .price .now {
+    font-family: DIN-MediumAlternate;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 25px;
+    color: #ff0000;
+}
+
+.info-list .price .old {
+    font-family: AdobeHeitiStd-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 25px;
+    color: #999999;
+}
+
+.info-list .details {
+    font-family: PingFang-SC-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 18px;
+    color: #333333;
 }
