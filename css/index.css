@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    height: 0;
+}
+
+.min-width {
+    min-width: 1200px;
+}
+
+.header-wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* 导航 */
+
+.nav-wrap {
+    height: 60px;
+    line-height: 60px;
+    background-color: #d81417;
+}
+
+.nav {
+    width: 1200px;
+    font-family: PingFang-SC-Bold;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+}
+
+.nav a.active {
+    background: #881b1d;
+}
+
+
+/* 导航 */
+
+.banner-wrap {
+    height: 581px;
+}
+
+.banner-wrap img {
+    width: 100%;
+    height: 581px;
+}
