@@ -18,6 +18,11 @@
     min-width: 1200px;
 }
 
+.header-wrap {
+    width: 100%;
+    background-color: #d81417;
+}
+
 
 /* 导航 */
 
@@ -97,6 +102,7 @@
     width: 343px;
     height: 211px;
     float: left;
+    font-size: 0;
 }
 
 .info-list .item .cover-bg {
@@ -112,14 +118,14 @@
 .info-list .item .cover-bg .type {
     width: 343px;
     height: 211px;
-    transition: all 4s;
+    transition: all 0.5s;
     text-align: center;
     line-height: 211px;
     background-color: #000000;
     opacity: 0.72;
     position: absolute;
     left: 0;
-    top: -211px;
+    bottom: 0;
     font-family: PingFang-SC-Medium;
     font-size: 36px;
     font-weight: normal;
@@ -129,7 +135,7 @@
 }
 
 .info-list .item .cover-bg:hover .type {
-    top: 0;
+    bottom: -211px;
 }
 
 .info-list .price .now {
