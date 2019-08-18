@@ -127,7 +127,7 @@
 		<div class="title-wrap clearfix w">
 			<div class="title">艺考资讯</div>
 			<div class="more tab">
-				<span class="tab-item">影视编导</span>
+				<span class="tab-item active">影视编导</span>
 				<span class="tab-item">播音主持</span>
 				<span class="tab-item"> 表演</span>
 				<span class="tab-item">音乐</span>
@@ -225,6 +225,10 @@
 					nextEl: '.swiper-button-next',
 					prevEl: '.swiper-button-prev',
 				},
+			});
+			$('.tab-item').on('click', function() {
+				var _index = $(this).index();
+				$(this).addClass('active').siblings(".tab-item").removeClass('active');
 			});
 		});
 	</script>
