@@ -93,7 +93,10 @@
 <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(function(){
-		
+		$('.classes .item').on('click',function(){
+			var _index=$(this).index();
+			$(this).addClass('active').siblings(".item").removeClass('active');
+		});
 	});
 </script>
 </html>
