@@ -37,7 +37,7 @@
 			<img src="../img/151305076786.png" width="100%" alt="">
 		</div>
 		<!-- 公共title -->
-		<div class="title-wrap clearfix w bor0" >
+		<div class="title-wrap clearfix w bor0">
 			<div class="more">当前位置：<a href="">首页</a>><a href="" class="posi">招生方案</a></div>
 		</div>
 		<div class="title-wrap clearfix w">
@@ -51,11 +51,63 @@
 				<div class="item">15天面授集训班</div>
 				<div class="item">冲刺串讲班</div>
 			</div>
+			<!-- 基础班 -->
 			<div class="class-con right">
 				<div class="item">
 					<img src="../img/tea.png" width="471" height="303">
 					<div class="box">
 						<div class="class-name">基础班</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">基础班</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+			</div>
+			<!-- 习题班 -->
+			<div class="class-con right Hide">
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">习题班</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">基础班</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+			</div>
+			<!-- 15天 -->
+			<div class="class-con right Hide">
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">基础班15</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">基础班</div>
+						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
+					</div>
+				</div>
+			</div>
+			<!-- 冲刺班 -->
+			<div class="class-con right Hide">
+				<div class="item">
+					<img src="../img/tea.png" width="471" height="303">
+					<div class="box">
+						<div class="class-name">冲刺班</div>
 						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
 					</div>
 				</div>
@@ -90,13 +142,14 @@
 			</div>
 		</div>
 	</body>
-<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-	$(function(){
-		$('.classes .item').on('click',function(){
-			var _index=$(this).index();
-			$(this).addClass('active').siblings(".item").removeClass('active');
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.classes .item').on('click', function() {
+				var _index = $(this).index();
+				$(this).addClass('active').siblings(".item").removeClass('active');
+				$('.class-con').eq(_index).show().siblings(".class-con").hide();
+			});
 		});
-	});
-</script>
+	</script>
 </html>

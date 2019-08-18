@@ -108,5 +108,12 @@
 			</div>
 		</div>
 	</body>
-
+<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.type-wrap .item').on('click', function() {
+				$(this).addClass('active').siblings(".item").removeClass('active');
+			});
+		});
+	</script>
 </html>
