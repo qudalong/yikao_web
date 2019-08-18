@@ -21,10 +21,10 @@ a{
     min-width: 1200px;
 }
 
-.header-wrap {
+/* .header-wrap {
     width: 100%;
     background-color: #d81417;
-}
+} */
 
 
 /* 导航 */
@@ -210,11 +210,11 @@ input{
     color: #d81417;
 }
 
-.number p{
+/* .number p{
     font-size: 16px;
     color: #333333;
     padding: 5px 0;
-}
+} */
 .bottom{
     width: 1200px;
     height: 100px;
