@@ -87,7 +87,7 @@
 }
 
 .nav a.active {
-	background: #d81417;
+	background: #881B1D;
 }
 
 
@@ -664,6 +664,7 @@
 .map{
 	margin-left: 30px;
 }
+
 	.map-list{
 		margin-right: 120px;
 	}
