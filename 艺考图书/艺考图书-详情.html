@@ -42,6 +42,10 @@
 			<div class="tab-book left">
 				<div class="book-grounp">
 					<img class="book" src="../img/book_desc.png" width="295" height="314">
+					<img class="book Hide" src="../img/book_desc.png" width="295" height="314">
+					<img class="book Hide" src="../img/book_desc.png" width="295" height="314">
+					<img class="book Hide" src="../img/book_desc.png" width="295" height="314">
+					<img class="book Hide" src="../img/book_desc.png" width="295" height="314">
 				</div>
 				<div class="tab-bar">
 					<img class="book active" src="../img/book_desc.png" width="44" height="44">
@@ -97,7 +101,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="../img/book-desc.png" width="817">
+					<img src="../img/book-desc.png" width="717">
 				</div>
 			</div>
 			<div class="tujian right">
@@ -184,5 +188,14 @@
 			</div>
 		</div>
 	</body>
-
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.tab-bar .book').on('click', function() {
+				var _index = $(this).index();
+				$(this).addClass('active').siblings(".book").removeClass('active');
+				$('.book-grounp .book').eq(_index).removeClass('Hide').siblings(".book").addClass('Hide');
+			});
+		});
+	</script>
 </html>
