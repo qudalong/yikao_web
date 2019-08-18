@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+.clearfix:after {
+    content: '';
+    clear: both;
+    height: 0;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.min-width {
+    min-width: 1200px;
+}
+
+.header-wrap {
+    width: 100%;
+    background-color: #d81417;
+}
+
+
+/* 导航 */
+
+.nav-wrap {
+    height: 60px;
+    line-height: 60px;
+    background-color: #d81417;
+}
+
+.nav {
+    font-family: PingFang-SC-Bold;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+}
+
+.nav a.active {
+    background: #881b1d;
+}
+
+
+/* 导航 */
+
+.banner-wrap {
+    height: 581px;
+}
+
+.banner-wrap img {
+    width: 100%;
+    height: 581px;
+}
+
+
+/* 公共title */
+
+.title-wrap {
+    height: 20px;
+    margin: 10px auto;
+    border-left: 3px solid #881b1d;
+    padding-left: 10px;
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+.title-wrap .title {
+    float: left;
+}
+
+.title-wrap .more {
+    float: right;
+    color: #333333;
+    text-decoration: none;
+    /* border-radius: 1px; */
+}
+input{
+    border-radius: 5px;
+}
+.title-wrap .more:hover {
+    text-decoration: underline;
+}
+
+
+/* 招生简章 */
+.center{
+    width: 1200px;
+    margin: 0 auto;
+    /* background: skyblue; */
+}
+.dh{
+    display: flex;
+    padding: 10px 0;
+    /* float: right; */
+}
+.list{
+    padding-top: 30px;
+}
+.list p{
+    width: 100px;
+    text-align: center;
+    float: left;
+}
+.list .active{
+    border-bottom: 2px solid #d81417;
+    color: #d81417;
+}
+.detail{
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f3f2f2;
+}
+.detail .frist{
+    padding-left: 13px;
+}
+.detail .xy{
+    padding-left: 25px;
+}
+.detail .tp{
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.detail .txt{
+    width: 100%;
+    font-size: 24px;
+    padding: 10px 0;
+}
+.detail .txt1{
+    width: 100%;
+    font-size: 16px;
+    color: #333333;
+    line-height: 24px;
+}
+.detail .scxy{
+    width: 100%;
+    display: flex;
+}
+.detail span{
+    width: 96px;
+    height: 28px;
+    font-size: 12px;
+    color: #ffffff;
+    background: #ff0000;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+

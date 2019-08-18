@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    height: 0;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.min-width {
+    min-width: 1200px;
+}
+
+.header-wrap {
+    width: 100%;
+    background-color: #fc7023;
+}
+
+
+/* 导航 */
+
+.nav-wrap {
+    height: 60px;
+    line-height: 60px;
+    background-color: #fc7023;
+}
+
+.nav {
+    font-family: PingFang-SC-Bold;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+}
+
+.nav a.active {
+    background: #f9a373;
+}
+
+
+/* 导航 */
+
+.banner-wrap {
+    height: 581px;
+}
+
+.banner-wrap img {
+    width: 100%;
+    height: 581px;
+}
+
+
+/* 公共title */
+
+.title-wrap {
+    height: 20px;
+    margin: 20px auto;
+    border-left: 3px solid #fc7023;
+    padding-left: 10px;
+}
+
+.title-wrap .title {
+    float: left;
+}
+
+.title-wrap .more {
+    float: right;
+    color: #333333;
+    text-decoration: none;
+}
+
+.title-wrap .more:hover {
+    text-decoration: underline;
+}
+
+
+/* 招生方案列表 */
+.walk{
+    width: 383px;
+    /* height: 121px; */
+    margin: 0 auto;
+    background: url(../img/js.png)  no-repeat;
+    background-size: 383px 121px;
+    float: left;
+}
+.ww{
+    margin: 0 auto;
+    background: url(../img/ls.png)  no-repeat;
+    background-size: 383px 121px;
+}
+.www{
+    background: url(../img/zs.png)  no-repeat;
+    background-size: 383px 121px;
+}
+.walk-wrap{
+    width: 383px;
+    border: 1.5px solid #fc7023;
+    float: left;
+    margin-left: 11px;
+    position: relative;
+}
+.k{
+    width: 383px;
+    border: 1.5px solid #f7f7f9;
+    float: left;
+    margin-left: 11px;
+    position: relative;
+}
+.walk-wrap .size{
+    display: flex;
+}
+.walk-wrap .size .txt{
+   font-size: 48px;
+   color: #fff;
+   line-height: 121px;
+   margin-left: 20px;
+}
+.walk-wrap .size .txt1{
+   font-size: 22px;
+   color: #fff;
+   line-height: 121px;
+   margin-left: 5px;
+   margin-top: 10px;
+}
+.walk-wrap .cen .txt2{
+    font-size: 24px;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+.walk-wrap .txt3{
+    font-size: 16px;
+    padding-left: 10px;
+}
+.walk-wrap .zxls{
+    width: 125px;
+	height: 41px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 41px;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #fc7023;
+    margin: 30px auto;  
+}
+.walk-wrap .zxll{
+    width: 125px;
+	height: 41px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 41px;
+    color: #333333;
+    border: solid 1px #f7f7f9;
+    border-radius: 5px;
+    margin: 30px auto;  
+}
