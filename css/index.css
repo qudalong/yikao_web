@@ -142,6 +142,13 @@
 	color: #666;
 	text-decoration: none;
 }
+.tab-a{
+	cursor: pointer;
+	padding: 0 10px;
+}
+.more .active{
+	color: #FF0000;
+}
 
 
 
@@ -654,10 +661,24 @@
 	font-size: 16px;
 	margin-bottom: 14px;
 }
-
-.class-con .info-list .item span {
+.map{
+	margin-left: 30px;
+}
+	.map-list{
+		margin-right: 120px;
+	}
+.map-list .item{
+	font-size: 16px;
+	line-height: 36px;
+	color: #666;
+}
+.map-list .item img{
+	vertical-align: middle;
+	margin-right: 4px;
+}
+.items span {
 	display: inline-block;
-	max-width: 120px;
+	min-width:243px;
 }
 
 .class-con .info-list .items:last-of-type {
@@ -690,25 +711,52 @@
 .message-list .item{
 	padding: 20px;
 	border-bottom: 1px solid #f0f0f0;
+	cursor: pointer;
+	color: rgb(51,51,51);
+	display: block;
 }
 .mes-desc{
 	width: 789px;
 }
 .mes-desc .time{
-	color: #rgb(51,51,51);
 	font-size: 24px;
 }
 .mes-desc .title{
-	color: #rgb(51,51,51);
 	font-size: 24px;
 	padding: 5px 0 10px 0;
 }
 .mes-desc .title{
-	color: #rgb(51,51,51);
 	font-size: 16px;
 	line-height: 27px;
 	display: -webkit-box;
 	 -webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
  overflow: hidden;
+}
+.news-wrap{
+	color: #333;
+	margin: 30px auto;
+}
+.new-title{
+	font-size: 24px;
+	line-height: 28px;
+	text-align: center;
+}
+.news-time{
+	text-align: center;
+	font-size: 16px;
+	line-height: 28px;
+}
+.new-desc{
+	font-size: 16px;
+	line-height: 26px;
+}
+.new-desc p{
+	font-size: 16px;
+	line-height: 26px;
+}
+.new-desc img{
+	height: auto;
+	max-width: 100%;
+	margin: 10px auto;
 }
