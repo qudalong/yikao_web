@@ -10,6 +10,73 @@
 	display: block;
 }
 
+.flow-item {
+	width: 580px;
+	color: #999;
+	margin-bottom: 40px;
+}
+
+.flow-item .title {
+	font-size: 24px;
+}
+
+.tr {
+	text-align: right;
+}
+
+.tc {
+	text-align: center;
+}
+
+.shuline {
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 1px;
+	background: #ccc;
+	height: 460px;
+}
+
+.circle {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 6px;
+	background: #ccc;
+	height: 6px;
+	border-radius: 50%;
+}
+
+.circle1 {
+	top: 0;
+}
+
+.circle2 {
+	top: 130px;
+}
+
+.circle3 {
+	top: 260px;
+}
+
+.circle4 {
+	top: 350px;
+}
+
+.flow-item .desc {
+	line-height: 20px;
+}
+
+.flow-item .month {
+	font-size: 36px;
+	padding-bottom: 3px;
+}
+
+.flow-item .year {
+	font-size: 16px;
+}
+
 .w {
 	width: 1200px;
 	margin: 0 auto;
@@ -89,18 +156,23 @@
 .nav a.active {
 	background: #881B1D;
 }
-.lunbo-wrap .item:first-of-type{
+
+.lunbo-wrap .item:first-of-type {
 	padding-left: 46px;
 }
-.bor0{
+
+.bor0 {
 	border: 0 !important;
 }
-.classes .active{
+
+.classes .active {
 	color: #D81417;
 }
-.Hide{
+
+.Hide {
 	display: none;
 }
+
 /* 导航 */
 
 .banner-wrap img {
@@ -149,15 +221,51 @@
 	text-decoration: none;
 }
 
+.adress-list {
+	background: #f0f0f0;
+	padding: 10px 20px;
+	font-size: 16px;
+	margin: 10px 0 20px;
+}
+
+.sheng {
+	width: 1080px;
+}
+
+.adress-list .item {
+	padding-bottom: 16px;
+}
+
+.adress-list .item .lable {
+	padding-right: 4px;
+	min-width: 70px;
+	text-align: right;
+}
+
+.adress-list .item .city {
+	cursor: pointer;
+	padding: 2px 12px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.adress-list .item .city.active {
+	color: #fff;
+	background: #D81417;
+	border-radius: 13px;
+}
+
 .more a {
 	color: #666;
 	text-decoration: none;
 }
-.tab-a{
+
+.tab-a {
 	cursor: pointer;
 	padding: 0 10px;
 }
-.more .active{
+
+.more .active {
 	color: #FF0000;
 }
 
@@ -179,9 +287,11 @@
 	padding-bottom: 60px;
 	background: url(../img/zj.png) 20px bottom no-repeat;
 }
-a{
+
+a {
 	text-decoration: none;
 }
+
 .info-list .item:nth-child(3n) {
 	margin-right: 0;
 }
@@ -285,7 +395,8 @@ a{
 	line-height: 29px;
 	letter-spacing: 0px;
 }
-.tab-item.active{
+
+.tab-item.active {
 	color: #d81417;
 }
 
@@ -470,10 +581,11 @@ a{
 .tujian .item:last-of-type {
 	border-bottom: 0;
 }
-.search{
+
+.search {
 	float: right;
 	width: 180px;
-	padding:8px 4px;
+	padding: 8px 4px;
 	border-radius: 4px;
 	border: 1px solid #f0f0f0;
 }
@@ -492,6 +604,7 @@ a{
 	color: #fff;
 	cursor: pointer;
 }
+
 
 .btn:active {
 	opacity: 0.8;
@@ -680,25 +793,29 @@ a{
 	font-size: 16px;
 	margin-bottom: 14px;
 }
-.map{
+
+.map {
 	margin-left: 30px;
 }
 
-	.map-list{
-		margin-right: 120px;
-	}
-.map-list .item{
+.map-list {
+	margin-right: 120px;
+}
+
+.map-list .item {
 	font-size: 16px;
 	line-height: 36px;
 	color: #666;
 }
-.map-list .item img{
+
+.map-list .item img {
 	vertical-align: middle;
 	margin-right: 4px;
 }
+
 .items span {
 	display: inline-block;
-	min-width:243px;
+	min-width: 243px;
 }
 
 .class-con .info-list .items:last-of-type {
@@ -719,63 +836,77 @@ a{
 	top: -12px;
 	float: left;
 }
-.history-book .item{
+
+.history-book .item {
 	border: 0;
 }
-.history-book .item .price .old{
+
+.history-book .item .price .old {
 	font-size: 14px;
 }
-.history-book .item .price .now{
+
+.history-book .item .price .now {
 	font-size: 16px;
 }
-.message-list .item{
+
+.message-list .item {
 	padding: 20px;
 	border-bottom: 1px solid #f0f0f0;
 	cursor: pointer;
-	color: rgb(51,51,51);
+	color: rgb(51, 51, 51);
 	display: block;
 }
-.mes-desc{
+
+.mes-desc {
 	width: 789px;
 }
-.mes-desc .time{
+
+.mes-desc .time {
 	font-size: 24px;
 }
-.mes-desc .title{
+
+.mes-desc .title {
 	font-size: 24px;
 	padding: 5px 0 10px 0;
 }
-.mes-desc .title{
+
+.mes-desc .title {
 	font-size: 16px;
 	line-height: 27px;
 	display: -webkit-box;
-	 -webkit-box-orient: vertical;
+	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
- overflow: hidden;
+	overflow: hidden;
 }
-.news-wrap{
+
+.news-wrap {
 	color: #333;
 	margin: 30px auto;
 }
-.new-title{
+
+.new-title {
 	font-size: 24px;
 	line-height: 28px;
 	text-align: center;
 }
-.news-time{
+
+.news-time {
 	text-align: center;
 	font-size: 16px;
 	line-height: 28px;
 }
-.new-desc{
+
+.new-desc {
 	font-size: 16px;
 	line-height: 26px;
 }
-.new-desc p{
+
+.new-desc p {
 	font-size: 16px;
 	line-height: 26px;
 }
-.new-desc img{
+
+.new-desc img {
 	height: auto;
 	max-width: 100%;
 	margin: 10px auto;

@@ -53,6 +53,63 @@
 				<p>书法</p>
 				<p>空乘</p>
 			</div>
+			<div class="adress-list">
+				<div class="item clearfix">
+					<div class="lable left">地区：</div>
+					<div class="sheng right">
+						<span class="city all active">全部</span>
+						<span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span><span class="city">北京</span>
+						<span class="city">山东</span>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="lable left">文化分：</div>
+					<div class="sheng right">
+						<span class="city all active">全部</span>
+						<span class="city">300以下</span>
+						<span class="city">300-400</span>
+						<span class="city">400-500</span>
+						<span class="city">500以上</span>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="lable left">生源地：</div>
+					<div class="sheng right">
+						<span class="city all active">全部</span>
+						<span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="lable left">统考：</div>
+					<div class="sheng right">
+						<span class="city all active">全部</span>
+						<span class="city">承认统招成绩</span>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="lable left">考点：</div>
+					<div class="sheng right">
+						<span class="city all active">全部</span>
+						<span class="city">北京</span>
+						<span class="city">天津</span>
+						<span class="city">山东</span>
+					</div>
+				</div>
+			</div>
 
 			<div class="title-wrap clearfix w">
 				<div class="title">高效招商简章</div>
@@ -154,10 +211,13 @@
 		</div>
 
 	</body>
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		$(function() {
+			$('.sheng .city').click(function() {
+				$(this).addClass('active').siblings(".city").removeClass('active')
+			});
 			$('.list p').click(function() {
-				var index = $(this).index();
 				$(this).addClass('active').siblings("p").removeClass('active')
 			});
 		});
