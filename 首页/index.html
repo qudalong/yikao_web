@@ -289,18 +289,7 @@
 	</body>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/swiper.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/html" id="J_tpl_class">
-		{{for}}
-			<div class="form-group">
-					<div class="radio" onclick="allotClinet(this)" userId={{:userId}}>
-							<input type="radio" name="client" id="out{{:#getIndex()+1}}" required="">
-							<label for="out{{:#getIndex()+1}}"> {{:nickname}} </label>
-					</div>
-			</div>
-		{{/for}}
-	</script>
 	<script type="text/javascript">
 		$(function() {
 			var swiper = new Swiper('.swiper-container', {
@@ -316,28 +305,6 @@
 			$(this).addClass('active').siblings(".tab-item").removeClass('active');
 		});
 
-		function listPublicCustomer(keyword, customerStar, customerType, customerProvince) {
-			var tmpl = $.templates("#J_tpl_class");
-			$.ajax({
-				url: api + 'api/customer/listPublicCustomer',
-				data: {
-					keyword: keyword || '',
-					customerStar: customerStar || '',
-					customerType: customerType || '',
-					customerProvince: customerProvince || '',
-					page: '',
-					limit: ''
-				},
-				dataType: 'JSON',
-				success: function(res) {
-					if (res.code == 200) {
-						var data = res.result.list;
-						var html = tmpl.render(data);
-						$("#J_class").html(html);
-					}
-				}
-			});
-		}
-	</script>
+		</script>
 
 </html>
