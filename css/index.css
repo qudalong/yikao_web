@@ -377,11 +377,16 @@ a {
 	margin: 20px 20px 0 0;
 }
 
+.book-list .item:hover img {
+	transform: scale(1.05);
+}
+
 .book-list .item:nth-child(4n) {
 	margin-right: 0;
 }
 
 .book-list .item img {
+	transition: all 1s;
 	display: inline-block;
 }
 
@@ -910,4 +915,77 @@ a {
 	height: auto;
 	max-width: 100%;
 	margin: 10px auto;
+}
+
+.map-list .icon {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	background: #CCCCCC;
+	vertical-align: bottom;
+	border-radius: 50%;
+}
+
+.map-list .info1 {
+	background:#ccc url(../img/wz.png) no-repeat center;
+}
+.map-list .info2 {
+	background:#ccc url(../img/yx.png) no-repeat center;
+}
+.map-list .info3 {
+	background:#ccc url(../img/dh.png) no-repeat center;
+}
+.map-list .info4 {
+	background:#ccc url(../img/lxr.png) no-repeat center;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ellipsis3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.fixd {
+	width: 87px;
+	background: #000;
+	color: #fff;
+	position: fixed;
+	right: 0;
+	top: 20%;
+	text-align: center;
+	z-index: 9000;
+	cursor: pointer;
+}
+
+.fixd .item {
+	display: block;
+	color: #fff;
+	padding: 8px 0;
+	font-size: 16px;
+	border-bottom: 1px solid #fff;
+}
+
+.fixd .item:hover {
+	opacity: 0.7;
+}
+
+.fixd .item.first {
+	background: #D81417;
+}
+
+.fixd .item.last {
+	background: #D81417;
+	border-bottom: 0;
+}
+
+.fixd .item img {
+	display: inline-block;
+	padding-bottom: 4px;
 }

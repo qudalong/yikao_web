@@ -9,6 +9,37 @@
 	</head>
 
 	<body>
+		<!-- 悬浮框 -->
+		<div class="fixd">
+			<div class="item first">
+				<img src="../img/kefu.png">
+				<div>在线客服</div>
+			</div>
+			<div class="item">
+				<img src="../img/biaoyan.png">
+				<div>影视编导</div>
+			</div>
+			<div class="item">
+				<img src="../img/zuci.png">
+				<div>播音主次</div>
+			</div>
+			<div class="item">
+				<img src="../img/biaoyan.png">
+				<div>表演</div>
+			</div>
+			<div class="item">
+				<img src="../img/yy.png">
+				<div>音乐</div>
+			</div>
+			<a href="../首页/index.html" class="item">
+				<img src="../img/home.png">
+				<div>回到首页</div>
+			</a>
+			<div class="item last" onclick="toTop()">
+				<img src="../img/totop.png">
+				<div>返回顶部</div>
+			</div>
+		</div>
 		<!--头部 -->
 		<div class="header-wrap w clearfix">
 			<img class="logo" src="../img/logo.png" alt="">
@@ -25,7 +56,7 @@
 		<div class="nav-wrap">
 			<div class="nav w">
 				<a href="../首页/index.html" class="active">首页</a>
-				<a href="../招生方案/招生方案.html">招生方案</a>
+				<a href="../招生方案/招生方案.html?a=1&b=2">招生方案</a>
 				<a href="../艺考图书/艺考图书.html">艺考图书</a>
 				<a href="../艺考咨讯/艺考咨讯.html">艺考咨讯</a>
 				<a href="../招生简章/招生简章.html">高校招生简章</a>
@@ -53,31 +84,32 @@
 					<span class='now'>￥150元</span>
 					<span class='old'>定价1999元</span>
 				</div>
-				<p class="details">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视... "
+				<p class="details ellipsis3">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史
+					"
 				</p>
 			</a>
 			<a href="../招生方案/招生方案.html" class="item">
 				<div class="cover-bg">
 					<img class="img" src="../img/banner.jpg" alt="">
-					<div class="type">编导超值班</div>
+					<div class="type">编导精品班</div>
 				</div>
 				<div class="price">
 					<span class='now'>￥150元</span>
 					<span class='old'>定价1999元</span>
 				</div>
-				<p class="details">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视... "
+				<p class="details ellipsis3">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视... "
 				</p>
 			</a>
 			<a href="../招生方案/招生方案.html" class="item">
 				<div class="cover-bg">
 					<img class="img" src="../img/banner.jpg" alt="">
-					<div class="type">编导超值班</div>
+					<div class="type">编导集训班</div>
 				</div>
 				<div class="price">
 					<span class='now'>￥150元</span>
 					<span class='old'>定价1999元</span>
 				</div>
-				<p class="details">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视... "
+				<p class="details ellipsis3">"包括：基础班：文学艺术常识与简史、影视作品分析与评论编导故事构思与写作习题班文学艺术常识与简史影视... "
 				</p>
 		</div>
 		</a>
@@ -90,7 +122,7 @@
 		<a href="../艺考图书/艺考图书.html" class="book-list clearfix ">
 			<div class="w clearfix">
 				<div class="item">
-					<img src="../img/book.png" alt="">
+					<img src="../img/book.png" alt="" width="185" height="234">
 					<div class="price">
 						<span class='now'>￥150元</span>
 						<span class='old'>定价1999元</span>
@@ -106,7 +138,7 @@
 					<p class="details">《文学艺术常识与简史》</p>
 				</div>
 				<div class="item">
-					<img src="../img/book.png" alt="">
+					<img src="../img/book.png" alt="" width="185" height="234">
 					<div class="price">
 						<span class='now'>￥150元</span>
 						<span class='old'>定价1999元</span>
@@ -114,7 +146,7 @@
 					<p class="details">《文学艺术常识与简史》</p>
 				</div>
 				<div class="item">
-					<img src="../img/book.png" alt="">
+					<img src="../img/book.png" alt="" width="185" height="234">
 					<div class="price">
 						<span class='now'>￥150元</span>
 						<span class='old'>定价1999元</span>
@@ -265,11 +297,29 @@
 					prevEl: '.swiper-button-prev',
 				},
 			});
+
 			$('.tab-item').on('click', function() {
 				var _index = $(this).index();
 				$(this).addClass('active').siblings(".tab-item").removeClass('active');
 			});
 		});
+
+		function toTop() {
+			window.scrollTo(0, 0);
+		}
+
+		function parseURL(url) {
+			var url = url.split("?")[1];
+			var para = url.split("&");
+			var len = para.length;
+			var res = {};
+			var arr = [];
+			for (var i = 0; i < len; i++) {
+				arr = para[i].split("=");
+				res[arr[0]] = arr[1];
+			}
+			return res;
+		}
 	</script>
 
 </html>
