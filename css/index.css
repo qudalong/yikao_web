@@ -922,8 +922,11 @@ a {
 	height: 28px;
 	display: inline-block;
 	background: #CCCCCC;
-	vertical-align: bottom;
+	vertical-align: middle;
 	border-radius: 50%;
+}
+.map-list .item {
+	margin-bottom: 20px;
 }
 
 .map-list .info1 {
