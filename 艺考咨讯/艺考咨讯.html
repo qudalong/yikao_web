@@ -97,5 +97,11 @@
 			</div>
 		</div>
 	</body>
-
+<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$('.tab-a').on('click', function() {
+		var _index = $(this).index();
+		$(this).addClass('active').siblings(".tab-a").removeClass('active');
+	});
+</script>
 </html>

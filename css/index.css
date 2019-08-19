@@ -153,6 +153,10 @@
 	line-height: 60px;
 }
 
+.nav a:hover {
+	background: #881B1D;
+}
+
 .nav a.active {
 	background: #881B1D;
 }
@@ -499,7 +503,7 @@ a {
 }
 
 .lunbo-wrap img {
-	width: 270px;
+	width: 244px;
 	height: 198px;
 }
 
@@ -925,21 +929,25 @@ a {
 	vertical-align: middle;
 	border-radius: 50%;
 }
+
 .map-list .item {
 	margin-bottom: 20px;
 }
 
 .map-list .info1 {
-	background:#ccc url(../img/wz.png) no-repeat center;
+	background: #ccc url(../img/wz.png) no-repeat center;
 }
+
 .map-list .info2 {
-	background:#ccc url(../img/yx.png) no-repeat center;
+	background: #ccc url(../img/yx.png) no-repeat center;
 }
+
 .map-list .info3 {
-	background:#ccc url(../img/dh.png) no-repeat center;
+	background: #ccc url(../img/dh.png) no-repeat center;
 }
+
 .map-list .info4 {
-	background:#ccc url(../img/lxr.png) no-repeat center;
+	background: #ccc url(../img/lxr.png) no-repeat center;
 }
 
 .ellipsis {
@@ -956,7 +964,7 @@ a {
 }
 
 .fixd {
-	width: 87px;
+	width: 82px;
 	background: #000;
 	color: #fff;
 	position: fixed;

@@ -74,7 +74,7 @@
 			<a href="../招生方案/招生方案.html" class="more">更多></a>
 		</div>
 		<!-- 信息列表 -->
-		<div class="info-list clearfix w">
+		<div id="J_class" class="info-list clearfix w">
 			<a href="../招生方案/招生方案.html" class="item">
 				<div class="cover-bg">
 					<img class="img" src="../img/banner.jpg" alt="">
@@ -224,7 +224,7 @@
 			<a href="../合作艺校/合作艺校.html" class="more">更多></a>
 		</div>
 		<!-- 轮播图 -->
-		<div class="swiper-container lunbo-wrap w ">
+		<div class="swiper-container lunbo-wrap w " style="width:1100px;">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<a href='../合作艺校/合作艺校.html' class="item">
@@ -289,6 +289,18 @@
 	</body>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/swiper.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="J_tpl_class">
+		{{for}}
+			<div class="form-group">
+					<div class="radio" onclick="allotClinet(this)" userId={{:userId}}>
+							<input type="radio" name="client" id="out{{:#getIndex()+1}}" required="">
+							<label for="out{{:#getIndex()+1}}"> {{:nickname}} </label>
+					</div>
+			</div>
+		{{/for}}
+	</script>
 	<script type="text/javascript">
 		$(function() {
 			var swiper = new Swiper('.swiper-container', {
@@ -297,28 +309,34 @@
 					prevEl: '.swiper-button-prev',
 				},
 			});
-
-			$('.tab-item').on('click', function() {
-				var _index = $(this).index();
-				$(this).addClass('active').siblings(".tab-item").removeClass('active');
-			});
 		});
 
-		function toTop() {
-			window.scrollTo(0, 0);
-		}
+		$('.tab-item').on('click', function() {
+			var _index = $(this).index();
+			$(this).addClass('active').siblings(".tab-item").removeClass('active');
+		});
 
-		function parseURL(url) {
-			var url = url.split("?")[1];
-			var para = url.split("&");
-			var len = para.length;
-			var res = {};
-			var arr = [];
-			for (var i = 0; i < len; i++) {
-				arr = para[i].split("=");
-				res[arr[0]] = arr[1];
-			}
-			return res;
+		function listPublicCustomer(keyword, customerStar, customerType, customerProvince) {
+			var tmpl = $.templates("#J_tpl_class");
+			$.ajax({
+				url: api + 'api/customer/listPublicCustomer',
+				data: {
+					keyword: keyword || '',
+					customerStar: customerStar || '',
+					customerType: customerType || '',
+					customerProvince: customerProvince || '',
+					page: '',
+					limit: ''
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 200) {
+						var data = res.result.list;
+						var html = tmpl.render(data);
+						$("#J_class").html(html);
+					}
+				}
+			});
 		}
 	</script>
 

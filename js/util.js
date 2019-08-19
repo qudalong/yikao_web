@@ -13,3 +13,7 @@ function parseURL() {
 	console.log(res)
 	return res;
 }
+
+function toTop() {
+	window.scrollTo(0, 0);
+}
