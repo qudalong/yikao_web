@@ -131,11 +131,6 @@ input {
     padding: 35px 0;
 }
 
-.collDetail .lnn {
-    width: 199px;
-    height: 225px;
-}
-
 .collDetail .name {
     display: flex;
 }
@@ -165,11 +160,6 @@ input {
 .colldetail .coll {
     margin-left: 20px;
     padding: 35px 0;
-}
-
-.colldetail .lnn {
-    width: 199px;
-    height: 225px;
 }
 
 .colldetail .name {

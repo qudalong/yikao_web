@@ -470,7 +470,13 @@ a{
 .tujian .item:last-of-type {
 	border-bottom: 0;
 }
-
+.search{
+	float: right;
+	width: 180px;
+	padding:8px 4px;
+	border-radius: 4px;
+	border: 1px solid #f0f0f0;
+}
 
 .tujian .title {
 	border-left: 3px solid #d81417;
