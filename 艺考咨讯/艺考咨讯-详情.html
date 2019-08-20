@@ -26,7 +26,7 @@
 				<a href="../首页/index.html">首页</a>
 				<a href="../招生方案/招生方案.html">招生方案</a>
 				<a href="../艺考图书/艺考图书.html">艺考图书</a>
-				<a href="../艺考咨讯/艺考咨讯.html"  class="active">艺考咨讯</a>
+				<a href="../艺考咨讯/艺考咨讯.html" class="active">艺考咨讯</a>
 				<a href="../招生简章/招生简章.html">高校招生简章</a>
 				<a href="../合作艺校/合作艺校.html">合作艺校</a>
 				<a href="../联系我们/联系我们.html">联系我们</a>
@@ -36,36 +36,18 @@
 		<div class="banner-wrap">
 			<img src="../img/re.png" width="100%" alt="">
 		</div>
-		<!-- 新闻详情 -->
-		<div class="news-wrap w">
-			<div class="new-title">编导艺考：新闻写作的基本方法</div>
-			<div class="news-time">网络胡硕 2019-08-08 08:12</div>
-			<div class="new-desc">
-				在编导专业的学习当中，有一类考试的内容是新闻写作，这个写作与其他写作的不一样，有异于我们平时的主观思想，新闻写作要从客观、官方的角度来评价事物。今天小编就来为大家讲述一下新闻写作达到基本技巧与方法。刷新翻看我您有10+条未查看新闻，点击查编导艺考：<img src="../img/banner1.png" >新闻写作的基本方法在编导专业的学习当中，有一类考试的内容是新闻写作，这个写作与其他写作的不一样，有异于我们平时的主观思想，新闻写作要从客观、官方的角度来评价事物。今天小编就来为大家讲述一下新闻写作达到基本技巧与方法。我们先来说一下，新闻评论的基本基本写作步骤——选题、立意、论证等方向。
-			</div>
-		</div>
 		<!-- 公共title -->
-		<div class="title-wrap clearfix w" >
+		<div class="title-wrap clearfix w bor0">
+			<div class="more">当前位置：<a href="../首页/index.html">首页</a>><a href="" class="posi">新闻详情</a></div>
+		</div>
+		<!-- 新闻详情 -->
+		<div id='html_newsDesc' class="news-wrap w"></div>
+		<!-- 公共title -->
+		<div class="title-wrap clearfix w">
 			<div class="title">推荐新闻</div>
 		</div>
 		<!-- 资讯列表 -->
 		<div class="message-list w ">
-			<a href="" class="item clearfix">
-				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
-				<div class="mes-desc right">
-					<div class="time">2019-12-27</div>
-					<div class="title">每个艺术生都有一个美院梦</div>
-					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔，创立了第一所综合性的国立高等艺术学府--国立艺术院，揭开了中国高等美术教育的篇章。作为国内学科最完备、规模最齐整的第一所国立高等美术院校......</p>
-				</div>
-			</a>
-			<a href="" class="item clearfix">
-				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
-				<div class="mes-desc right">
-					<div class="time">2019-12-27</div>
-					<div class="title">每个艺术生都有一个美院梦</div>
-					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔，创立了第一所综合性的国立高等艺术学府--国立艺术院，揭开了中国高等美术教育的篇章。作为国内学科最完备、规模最齐整的第一所国立高等美术院校......</p>
-				</div>
-			</a>
 			<a href="" class="item clearfix">
 				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
 				<div class="mes-desc right">
@@ -95,5 +77,37 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_newsDesc">
+		<div class="new-title">{{:title}}</div>
+		<div class="news-time">{{:createtime}}</div>
+		<div class="new-desc">{{:content}}</div>
+	</script>
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var newsId = parseURL().id;
+		console.log('newsId=' + newsId);
+		getNewsType(newsId);
+
+		function getNewsType(newsId) {
+			var tmpl = $.templates("#J_tpl_newsDesc");
+			$.ajax({
+				url: api + 'ykInformation/info',
+				type: 'POST',
+				data: {
+					id: newsId
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.ykInformation;
+						var html = tmpl.render(data);
+						$("#html_newsDesc").html(html);
+					}
+				}
+			});
+		}
+	</script>
 
 </html>

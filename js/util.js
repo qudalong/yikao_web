@@ -1,4 +1,5 @@
-var api = '';
+// var api = 'http://jsonplaceholder.typicode.com/';
+var api = 'http://49.4.15.20:8083/YK/api/';
 
 function parseURL() {
 	var url = location.search.split("?")[1];
@@ -10,7 +11,7 @@ function parseURL() {
 		arr = para[i].split("=");
 		res[arr[0]] = arr[1];
 	}
-	console.log(res)
+	console.log(res);
 	return res;
 }
 

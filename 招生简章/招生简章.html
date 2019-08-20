@@ -6,7 +6,6 @@
 		<title>招生简章</title>
 		<link rel="stylesheet" type="text/css" href="../css/general.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<script src="../js/jquery.js"></script>
 	</head>
 
 	<body>
@@ -211,16 +210,40 @@
 		</div>
 
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_newsDesc">
+		<div class="new-title">{{:title}}</div>
+		<div class="news-time">{{:createtime}}</div>
+		<div class="new-desc">{{:content}}</div>
+	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		$(function() {
-			$('.sheng .city').click(function() {
-				$(this).addClass('active').siblings(".city").removeClass('active')
-			});
-			$('.list p').click(function() {
-				$(this).addClass('active').siblings("p").removeClass('active')
-			});
+		$('.sheng .city').click(function() {
+			$(this).addClass('active').siblings(".city").removeClass('active')
 		});
+		$('.list p').click(function() {
+			$(this).addClass('active').siblings("p").removeClass('active')
+		});
+
+		function getNewsType(newsId) {
+			var tmpl = $.templates("#J_tpl_newsDesc");
+			$.ajax({
+				url: api + 'ykSchool/info',
+				type: 'POST',
+				data: {
+					id: '1'
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.ykSchool;
+						var html = tmpl.render(data);
+						$("#html_newsDesc").html(html);
+					}
+				}
+			});
+		}
 	</script>
 
 </html>

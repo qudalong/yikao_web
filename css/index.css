@@ -280,7 +280,9 @@
 .info-list {
 	padding: 20px 0;
 }
-
+.mes-desc  img{
+	display: none;
+}
 .info-list .item {
 	width: 343px;
 	float: left;
@@ -290,6 +292,7 @@
 	margin-right: 52px;
 	padding-bottom: 60px;
 	background: url(../img/zj.png) 20px bottom no-repeat;
+	margin-bottom: 20px;
 }
 
 a {
