@@ -114,81 +114,9 @@
 				<div class="title">高效招商简章</div>
 				<input class="search" type="text" placeholder="搜索">
 			</div>
-			<a href="招生简章-学校介绍.html">
-				<div class="detail">
-					<img src="../img/scyy.png" alt="">
-					<div class="frist">
-						<div class="scxy">
-							<p class="txt ">四川音乐学院</p>
-							<span>2019招生简章</span>
-						</div>
-						<p class="txt1">
-							四川音乐学院创建于1939年。是中国西南地区唯一的一所集音乐、美术、舞蹈、戏剧、传媒、工业设计及艺术管理七大学科为一体的多学科、多层次综合性高等艺术院校。学院有本部和新都两个校区。占地1156亩。拥有固定资产12亿元。在校生12000人（其中研究生400人......
-						</p>
-						<img src="../img/zj.png" alt="" class="jt">
-					</div>
-				</div>
-			</a>
-			<a href="招生简章-学校介绍.html">
-				<div class="detail">
-					<img src="../img/nj.png" alt="" class="tp">
-					<div class="xy">
-						<div class="scxy">
-							<p class="txt ">南京艺术学院</p>
-							<span>2019招生简章</span>
-						</div>
-						<p class="txt1">
-							四川音乐学院创建于1939年。是中国西南地区唯一的一所集音乐、美术、舞蹈、戏剧、传媒、工业设计及艺术管理七大学科为一体的多学科、多层次综合性高等艺术院校。学院有本部和新都两个校区。占地1156亩。拥有固定资产12亿元。在校生12000人（其中研究生400人......
-						</p>
-						<img src="../img/zj.png" alt="" class="jt">
-					</div>
-				</div>
-			</a>
-			<a href="招生简章-学校介绍.html">
-				<div class="detail">
-					<img src="../img/zgcm.png" alt="" class="tp">
-					<div class="xy">
-						<div class="scxy">
-							<p class="txt ">中国传媒大学南广学院</p>
-							<span>2019招生简章</span>
-						</div>
-						<p class="txt1">
-							四川音乐学院创建于1939年。是中国西南地区唯一的一所集音乐、美术、舞蹈、戏剧、传媒、工业设计及艺术管理七大学科为一体的多学科、多层次综合性高等艺术院校。学院有本部和新都两个校区。占地1156亩。拥有固定资产12亿元。在校生12000人（其中研究生400人......
-						</p>
-						<img src="../img/zj.png" alt="" class="jt">
-					</div>
-				</div>
-			</a>
-			<a href="招生简章-学校介绍.html">
-				<div class="detail">
-					<img src="../img/zjcm.png" alt="" class="tp">
-					<div class="xy">
-						<div class="scxy">
-							<p class="txt ">浙江传媒学院</p>
-							<span>2019招生简章</span>
-						</div>
-						<p class="txt1">
-							四川音乐学院创建于1939年。是中国西南地区唯一的一所集音乐、美术、舞蹈、戏剧、传媒、工业设计及艺术管理七大学科为一体的多学科、多层次综合性高等艺术院校。学院有本部和新都两个校区。占地1156亩。拥有固定资产12亿元。在校生12000人（其中研究生400人......
-						</p>
-						<img src="../img/zj.png" alt="" class="jt">
-					</div>
-				</div>
-			</a>
-			<a href="招生简章-学校介绍.html">
-				<div class="detail">
-					<img src="../img/sccm.png" alt="" class="tp">
-					<div class="xy">
-						<div class="scxy">
-							<p class="txt ">四川音乐学院</p>
-							<span>2019招生简章</span>
-						</div>
-						<p class="txt1">
-							四川音乐学院创建于1939年。是中国西南地区唯一的一所集音乐、美术、舞蹈、戏剧、传媒、工业设计及艺术管理七大学科为一体的多学科、多层次综合性高等艺术院校。学院有本部和新都两个校区。占地1156亩。拥有固定资产12亿元。在校生12000人（其中研究生400人......
-						</p>
-						<img src="../img/zj.png" alt="" class="jt">
-					</div>
-				</div>
-			</a>
+			<div id="html_zhaosheng">
+
+			</div>
 		</div>
 		<div class="footer-wrap clearfix">
 			<div class="footer clearfix">
@@ -210,10 +138,20 @@
 		</div>
 
 	</body>
-	<script type="text/x-jsrender" id="J_tpl_newsDesc">
-		<div class="new-title">{{:title}}</div>
-		<div class="news-time">{{:createtime}}</div>
-		<div class="new-desc">{{:content}}</div>
+	<script type="text/x-jsrender" id="J_tpl_zhaosheng">
+		<a href="招生简章-学校介绍.html">
+			<div class="detail">
+				<img class="schoolImg" src="{{:photo}}" alt="">
+				<div class="frist">
+					<div class="scxy">
+						<p class="txt ">{{:name}}</p>
+						<span>{{:type}}</span>
+					</div>
+					<div class="txt1">{{:details}}</div>
+					<img src="../img/zj.png" alt="" class="jt">
+				</div>
+			</div>
+		</a>
 	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
@@ -225,21 +163,26 @@
 		$('.list p').click(function() {
 			$(this).addClass('active').siblings("p").removeClass('active')
 		});
+		getZhaoshengList();
 
-		function getNewsType(newsId) {
-			var tmpl = $.templates("#J_tpl_newsDesc");
+		function getZhaoshengList() {
+			var tmpl = $.templates("#J_tpl_zhaosheng");
 			$.ajax({
-				url: api + 'ykSchool/info',
+				url: api + 'ykSchool/list',
 				type: 'POST',
 				data: {
-					id: '1'
+					region: '', //地区
+					points: '', //文化分
+					students: '', //生源
+					exam: '', //统考成绩 0 1
+					examination: '' //考点
 				},
 				dataType: 'JSON',
 				success: function(res) {
 					if (res.code == 0) {
-						var data = res.ykSchool;
+						var data = res.rows;
 						var html = tmpl.render(data);
-						$("#html_newsDesc").html(html);
+						$("#html_zhaosheng").html(html);
 					}
 				}
 			});

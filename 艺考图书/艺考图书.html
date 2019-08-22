@@ -25,7 +25,7 @@
 			<div class="nav w">
 				<a href="../首页/index.html">首页</a>
 				<a href="../招生方案/招生方案.html">招生方案</a>
-				<a href="../艺考图书/艺考图书.html"  class="active">艺考图书</a>
+				<a href="../艺考图书/艺考图书.html" class="active">艺考图书</a>
 				<a href="../艺考咨讯/艺考咨讯.html">艺考咨讯</a>
 				<a href="../招生简章/招生简章.html">高校招生简章</a>
 				<a href="../合作艺校/合作艺校.html">合作艺校</a>
@@ -54,37 +54,7 @@
 		</div>
 		<!-- 艺考图书 -->
 		<div class="book-list clearfix ">
-			<div class="w clearfix">
-				<a href="艺考图书-详情.html" class="item">
-					<img src="../img/book.png" alt="">
-					<div class="price">
-						<span class='now'>￥150元</span>
-						<span class='old'>定价1999元</span>
-					</div>
-					<p class="details">《文学艺术常识与简史》</p>
-				</a><a href="艺考图书-详情.html" class="item">
-					<img src="../img/book.png" alt="">
-					<div class="price">
-						<span class='now'>￥150元</span>
-						<span class='old'>定价1999元</span>
-					</div>
-					<p class="details">《文学艺术常识与简史》</p>
-				</a><a href="艺考图书-详情.html" class="item">
-					<img src="../img/book.png" alt="">
-					<div class="price">
-						<span class='now'>￥150元</span>
-						<span class='old'>定价1999元</span>
-					</div>
-					<p class="details">《文学艺术常识与简史》</p>
-				</a><a href="艺考图书-详情.html" class="item">
-					<img src="../img/book.png" alt="">
-					<div class="price">
-						<span class='now'>￥150元</span>
-						<span class='old'>定价1999元</span>
-					</div>
-					<p class="details">《文学艺术常识与简史》</p>
-				</a>
-			</div>
+			<div id="html_books" class="w clearfix"></div>
 		</div>
 
 		<!-- footer -->
@@ -107,12 +77,44 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_books">
+			<a href="../艺考图书/艺考图书-详情.html?id={{:id}}" class="item">
+					<img src="{{:photo}}" alt="" width="185" height="234">
+					<div class="price">
+						<span class='now'>￥{{:price}}元</span>
+						<span class='old'>{{:preferential}}</span>
+					</div>
+					<div class="details ellipsis" style="height: 20px;overflow: hidden;">{{:details}}</div>
+				</a>   
+	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$(function() {
-			$('.type-wrap .item').on('click', function() {
-				$(this).addClass('active').siblings(".item").removeClass('active');
-			});
+		$('.type-wrap .item').on('click', function() {
+			$(this).addClass('active').siblings(".item").removeClass('active');
 		});
+		// var type=parseURL().type||'';
+		// var pid=parseURL().pid||'';
+		// var id=parseURL().id;
+		// getBooks(type,pid);
+		getBooks();
+		function getBooks(type,pid) {
+			var tmpl = $.templates("#J_tpl_books");
+			$.ajax({
+				url: api + 'ykGoods/list',
+				type: 'POST',
+				data: {
+					type: 3,
+					pid: ''
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					var data = res.rows;
+					var html = tmpl.render(data);
+					$("#html_books").html(html);
+				}
+			});
+		}
 	</script>
 </html>

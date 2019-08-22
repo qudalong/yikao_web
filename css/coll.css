@@ -119,13 +119,14 @@ input{
 }
 .college{
     display: flex;
-    justify-content: space-evenly;
     margin-top: 40px;
+		flex-wrap: wrap;
 }
 .hzyx{
     width: 536px;
 	height: 498px;
 	border: solid 1px #d81417;
+	margin-right: 35px;
 }
 .hzyx .txt{
     padding: 10px 0;

@@ -18,8 +18,9 @@ $('.tab-item').on('click', function() {
 });
 
 getClass();
-// getBooks();
+getBooks();
 getSchool();
+
 
 function getClass() {
 	var tmpl = $.templates("#J_tpl_class");
@@ -44,12 +45,15 @@ function getClass() {
 function getBooks() {
 	var tmpl = $.templates("#J_tpl_books");
 	$.ajax({
-		url: api + 'photos',
+		url: api + 'ykGoods/list',
 		type: 'POST',
-		data: {},
+		data: {
+			type:3,
+			pid:''
+		},
 		dataType: 'JSON',
 		success: function(res) {
-			var data = res.slice(10, 14);
+			var data = res.rows.splice(0,8);
 			var html = tmpl.render(data);
 			$("#html_books").html(html);
 		}

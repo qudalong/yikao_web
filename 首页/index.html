@@ -187,7 +187,7 @@
 		</div>
 	</body>
 	<script type="text/x-jsrender" id="J_tpl_class">
-		<a href="../招生方案/招生方案.html" class="item">
+		<a href="../招生方案/招生方案-编导精英班.html?type={{:type}}&pid={{:pid}}" class="item">
 				<div class="cover-bg">
 					<img class="img" src="{{:photo}}" alt="">
 					<div class="type">{{:title}}</div>
@@ -201,18 +201,18 @@
 </script>
 
 	<script type="text/x-jsrender" id="J_tpl_books">
-		<a href="../艺考图书/艺考图书.html" class="item">
-				<img src="{{:thumbnailUrl}}" alt="" width="185" height="234">
+		<a href="../艺考图书/艺考图书-详情.html?id={{:id}}&type={{:type}}&pid={{:pid}}" class="item">
+				<img src="{{:photo}}" alt="" width="185" height="234">
 				<div class="price">
-					<span class='now'>￥150元</span>
-					<span class='old'>定价1999元</span>
+					<span class='now'>￥{{:price}}元</span>
+					<span class='old'>{{:preferential}}</span>
 				</div>
-				<p class="details ellipsis">{{:title}}</p>
+				<div class="details ellipsis" style="height: 20px;overflow: hidden;">{{:details}}</div>
 			</a>   
 </script>
 	<script type="text/x-jsrender" id="J_tpl_school">
 		<div  class="swiper-slide">
-			<a href='../合作艺校/合作艺校.html' class="item">
+			<a href='../合作艺校/合作艺校-详情.html?id={{:id}}' class="item">
 				<img src="{{:photo}}">
 				<div class="school">{{:name}}</div>
 			</a>

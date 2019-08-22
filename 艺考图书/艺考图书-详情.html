@@ -25,7 +25,7 @@
 			<div class="nav w">
 				<a href="../首页/index.html">首页</a>
 				<a href="../招生方案/招生方案.html">招生方案</a>
-				<a href="../艺考图书/艺考图书.html"  class="active">艺考图书</a>
+				<a href="../艺考图书/艺考图书.html" class="active">艺考图书</a>
 				<a href="../艺考咨讯/艺考咨讯.html">艺考咨讯</a>
 				<a href="../招生简章/招生简章.html">高校招生简章</a>
 				<a href="../合作艺校/合作艺校.html">合作艺校</a>
@@ -35,12 +35,12 @@
 		<!-- 公共title -->
 		<div class="title-wrap clearfix w bor0">
 			<div class="more">当前位置：<a href="../首页/index.html">首页</a>><a href="" class="posi">艺考图书详情</a></div>
-		</div>	
+		</div>
 		<div class="title-wrap clearfix w">
 			<div class="title">艺考图书详情</div>
 		</div>
 		<!-- 图书详情 -->
-		<div class="book-desc w clearfix">
+		<div id="html_bookDesc" class="book-desc w clearfix">
 			<div class="tab-book left">
 				<div class="book-grounp">
 					<img class="book" src="../img/book_desc.png" width="295" height="314">
@@ -51,10 +51,6 @@
 				</div>
 				<div class="tab-bar">
 					<img class="book active" src="../img/book_desc.png" width="44" height="44">
-					<img class="book" src="../img/book_desc.png" width="44" height="44">
-					<img class="book" src="../img/book_desc.png" width="44" height="44">
-					<img class="book" src="../img/book_desc.png" width="44" height="44">
-					<img class="book" src="../img/book_desc.png" width="44" height="44">
 				</div>
 			</div>
 			<div class="book-info right">
@@ -84,7 +80,7 @@
 			<div class="title">商品详情</div>
 		</div>
 		<!-- 商品详情 -->
-		<div class="tab-class w clearfix">
+		<div  class="tab-class w clearfix">
 			<div class="class-con left">
 				<div class="info-list">
 					<div class="items">产品参数</div>
@@ -190,14 +186,65 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_bookDesc">
+		<div class="tab-book left">
+				<div class="book-grounp">
+					<img class="book" src="{{:photo}}" width="295" height="314">
+				</div>
+				<div class="tab-bar">
+					<img class="book active" src="{{:photo}}" width="44" height="44">
+				</div>
+			</div>
+			<div class="book-info right">
+				<div class="title">{{:title}}</div>
+				<div class="mark">
+					<span>出版社直营</span>
+					<span>正品</span>
+					<span>包邮</span>
+				</div>
+				<div class="price-wrap clearfix">
+					<div class="left">
+						<div class="price">价格：<span class="through">{{:price}}元</span></div>
+						<div class="price">促销价：<span class="chuxiao"><span class="big">{{:preferential}}</span> 包邮</span></div>
+						<div class="btn-sm">
+							扫二维码下载购买
+						</div>
+					</div>
+					<div class="right relative">
+						<img class="book-ewm" src="../img/ewm1.png">
+						<div class="down-app">扫描下载APP</div>
+					</div>
+				</div>
+			</div>
+	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$(function() {
-			$('.tab-bar .book').on('click', function() {
-				var _index = $(this).index();
-				$(this).addClass('active').siblings(".book").removeClass('active');
-				$('.book-grounp .book').eq(_index).removeClass('Hide').siblings(".book").addClass('Hide');
-			});
+		$('.tab-bar .book').on('click', function() {
+			var _index = $(this).index();
+			$(this).addClass('active').siblings(".book").removeClass('active');
+			$('.book-grounp .book').eq(_index).removeClass('Hide').siblings(".book").addClass('Hide');
 		});
+
+		var bookId = parseURL().id;
+		getBookDesc(bookId);
+
+		function getBookDesc(bookId) {
+			var tmpl = $.templates("#J_tpl_bookDesc");
+			$.ajax({
+				url: api + 'ykGoods/info',
+				type: 'POST',
+				data: {
+					id: bookId
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					var data = res.ykGoods;
+					var html = tmpl.render(data);
+					$("#html_bookDesc").html(html);
+				}
+			});
+		}
 	</script>
 </html>

@@ -43,19 +43,7 @@
 		</div>
 		<!-- 老师详情 -->
 		<div class="tab-class w clearfix">
-			<div class="class-con left">
-				<div class="item">
-					<img src="../img/tea.png" width="717" height="526">
-					<div class="box2">
-						<div class="class-name">文学艺术常识与简史</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作学艺术常识与简史 影视作品分析与评论 编导故事构思与写作学艺术常识与简史 影视作品分析与评论
-							编导故事构思与写作</div>
-					</div>
-					<div class="btn-wrap">
-						<div class="btn">立即预约</div>
-					</div>
-				</div>
-			</div>
+			<div id="html_kechengDesc" class="class-con left"></div>
 			<div class="tujian right">
 				<div class="title">推荐课程</div>
 				<div class="item">
@@ -98,3 +86,42 @@
 	</body>
 
 </html>
+<script type="text/x-jsrender" id="J_tpl_kechengDesc">
+	<div class="item">
+		<img src="{{:photo}}" width="717" height="526">
+		<div class="box2">
+			<div class="class-name">{{:title}}</div>
+			<div class="class-desc">{{:details}}</div>
+		</div>
+		<div class="btn-wrap">
+			<div class="btn">立即预约</div>
+		</div>
+	</div>
+</script>
+
+<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var id = parseURL().id;
+	kecheng_desc(id);
+
+	function kecheng_desc(id) {
+		var tmpl = $.templates("#J_tpl_kechengDesc");
+		$.ajax({
+			url: api + 'ykGoods/info',
+			type: 'POST',
+			data: {
+				id: id
+			},
+			dataType: 'JSON',
+			success: function(res) {
+				if (res.code == 0) {
+					var data = res.ykGoods;
+					var html = tmpl.render(data);
+					$("#html_kechengDesc").html(html);
+				}
+			}
+		});
+	}
+</script>

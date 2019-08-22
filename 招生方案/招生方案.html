@@ -66,7 +66,7 @@
 		</div>
 	</body>
 	<script type="text/x-jsrender" id="J_tpl_class">
-			<a href="../招生方案/招生方案-编导精英班.html" class="item">
+			<a href="../招生方案/招生方案-编导精英班.html?type={{:type}}&pid={{:pid}}" class="item">
 					<div class="cover-bg">
 						<img class="img" src="{{:photo}}" alt="">
 						<div class="type">{{:title}}</div>
@@ -83,7 +83,6 @@
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		// parseURL();
-		
 		getClass();
 		function getClass() {
 			var tmpl = $.templates("#J_tpl_class");
@@ -91,7 +90,7 @@
 				url: api + 'ykGoods/list',
 				type: 'POST',
 				data: {
-					type:'',
+					type:1,
 					pid:''
 				},
 				dataType: 'JSON',
@@ -104,5 +103,7 @@
 				}
 			});
 		}
+		
+		
 	</script>
 </html>

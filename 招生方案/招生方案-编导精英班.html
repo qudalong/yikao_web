@@ -45,80 +45,9 @@
 		</div>
 		<!-- 选项卡 -->
 		<div class="tab-class w clearfix">
-			<div class="classes left">
-				<div class="item active">基础班</div>
-				<div class="item">习题班</div>
-				<div class="item">15天面授集训班</div>
-				<div class="item">冲刺串讲班</div>
-			</div>
+			<div id="html_kecheng" class="classes left"></div>
 			<!-- 基础班 -->
-			<a href="招生方案-文学艺术常识.html" class="class-con right">
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-			</a>
-			<!-- 习题班 -->
-			<a href="招生方案-文学艺术常识.html" class="class-con right Hide">
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">习题班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-			</a>
-			<!-- 15天 -->
-			<div class="class-con right Hide">
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班15</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-			</div>
-			<!-- 冲刺班 -->
-			<div class="class-con right Hide">
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">冲刺班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/tea.png" width="471" height="303">
-					<div class="box">
-						<div class="class-name">基础班</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视作品分析与评论 编导故事构思与写作</div>
-					</div>
-				</div>
-			</div>
+			<div id="html_kechengDesc" class="class-con right"></div>
 		</div>
 
 
@@ -142,14 +71,93 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_kecheng">
+		{{if #getIndex()==0}}
+		<div class="item active" data-pid="{{:pid}}">{{:title}}</div>
+		{{else}}
+		<div class="item"  data-pid="{{:pid}}">{{:title}}</div>
+		{{/if}}
+		</script>
+
+	<script type="text/x-jsrender" id="J_tpl_kechengDesc">
+		<a href="招生方案-文学艺术常识.html?id={{:id}}" class="item">
+			<img src="{{:photo}}" width="471" height="303">
+			<div class="box">
+				<div class="class-name">{{:title}}</div>
+				<div class="class-desc">{{:details}}</div>
+			</div>
+		</a>
+	</script>
+
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$(function() {
-			$('.classes .item').on('click', function() {
-				var _index = $(this).index();
-				$(this).addClass('active').siblings(".item").removeClass('active');
-				$('.class-con').eq(_index).show().siblings(".class-con").hide();
-			});
+			var type = parseURL().type;
+			var pid = parseURL().pid;
+		$('#html_kecheng').on('click', '.item', function() {
+			$(this).addClass('active').siblings(".item").removeClass('active');
+			pid = $(this).attr('data-pid');
+			kecheng_desc(2, pid);
 		});
+		kecheng(1, pid);
+		kecheng_desc(2, pid);
+
+		function kecheng(type, pid) {
+			var tmpl = $.templates("#J_tpl_kecheng");
+			$.ajax({
+				url: api + 'ykGoods/list',
+				type: 'POST',
+				data: {
+					type: type,
+					pid: pid
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.rows;
+						var html = tmpl.render(data);
+						$("#html_kecheng").html(html);
+					}
+				}
+			});
+		}
+
+		function kecheng_desc(type, pid) {
+			var tmpl = $.templates("#J_tpl_kechengDesc");
+			$.ajax({
+				url: api + 'ykGoods/list',
+				type: 'POST',
+				data: {
+					type: type,
+					pid: pid
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.rows;
+						var html = tmpl.render(data);
+						$("#html_kechengDesc").html(html);
+					}
+				}
+			});
+		}
+
+		function specialty() {
+			var tmpl = $.templates("#J_tpl_specialty");
+			$.ajax({
+				url: api + 'ykProfessional/list',
+				type: 'POST',
+				data: {},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.rows.splice(0, 3);
+						var html = tmpl.render(data);
+						$("#html_specialty").html(html);
+					}
+				}
+			});
+		}
 	</script>
 </html>
