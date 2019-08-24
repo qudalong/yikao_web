@@ -46,20 +46,7 @@
 			<div id="html_kechengDesc" class="class-con left"></div>
 			<div class="tujian right">
 				<div class="title">推荐课程</div>
-				<div class="item">
-					<img src="../img/man.png" width="311" height="200">
-					<div class="box">
-						<div class="class-name">影视作品分析与评论</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/man.png" width="311" height="200">
-					<div class="box">
-						<div class="class-name">影视作品分析与评论</div>
-						<div class="class-desc">课程特色：文学艺术常识与简史 影视</div>
-					</div>
-				</div>
+				<div id="html_kecheng"></div>
 			</div>
 		</div>
 
@@ -98,6 +85,15 @@
 		</div>
 	</div>
 </script>
+<script type="text/x-jsrender" id="J_tpl_kecheng">
+	<a href="招生方案-文学艺术常识.html?id={{:id}}" class="item">
+		<img src="{{:photo}}" width="311" height="200">
+		<div class="box">
+			<div class="class-name">{{:title}}</div>
+			<div class="class-desc">课程特色：{{:details}}</div>
+		</div>
+	</a>
+</script>
 
 <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
@@ -105,6 +101,7 @@
 <script type="text/javascript">
 	var id = parseURL().id;
 	kecheng_desc(id);
+	getKeCheng_tuijian();
 
 	function kecheng_desc(id) {
 		var tmpl = $.templates("#J_tpl_kechengDesc");
@@ -121,6 +118,23 @@
 					var html = tmpl.render(data);
 					$("#html_kechengDesc").html(html);
 				}
+			}
+		});
+	}
+
+	function getKeCheng_tuijian() {
+		var tmpl = $.templates("#J_tpl_kecheng");
+		$.ajax({
+			url: api + 'ykGoods/tuijian',
+			type: 'POST',
+			data: {
+				type: 2
+			},
+			dataType: 'JSON',
+			success: function(res) {
+				var data = res.rows;
+				var html = tmpl.render(data);
+				$("#html_kecheng").html(html);
 			}
 		});
 	}

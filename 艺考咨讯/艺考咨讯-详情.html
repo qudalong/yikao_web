@@ -47,7 +47,7 @@
 			<div class="title">推荐新闻</div>
 		</div>
 		<!-- 资讯列表 -->
-		<div class="message-list w ">
+		<div id="html_newTuijian" class="message-list w ">
 			<a href="" class="item clearfix">
 				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
 				<div class="mes-desc right">
@@ -82,6 +82,16 @@
 		<div class="news-time">{{:createtime}}</div>
 		<div class="new-desc">{{:content}}</div>
 	</script>
+	<script type="text/x-jsrender" id="J_tpl_newTuijian">
+		<a href="艺考咨讯-详情.html?id={{:id}}" class="item clearfix">
+			<img class="left" src="{{:photo}}" width="343" height="199" alt="">
+			<div class="mes-desc right">
+				<div class="time">{{:createtime}}</div>
+				<div class="title">{{:title}}</div>
+				<p class="desc">{{:content}}</p>
+			</div>
+		</a>
+	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
@@ -89,6 +99,7 @@
 		var newsId = parseURL().id;
 		console.log('newsId=' + newsId);
 		getNewsType(newsId);
+		newTuijian(newsId);
 
 		function getNewsType(newsId) {
 			var tmpl = $.templates("#J_tpl_newsDesc");
@@ -105,6 +116,42 @@
 						var html = tmpl.render(data);
 						$("#html_newsDesc").html(html);
 					}
+				}
+			});
+		}
+		//新闻推荐
+		function getNewsList(id) {
+			var tmpl = $.templates("#J_tpl_newsDesc");
+			$.ajax({
+				url: api + 'ykInformation/list',
+				type: 'POST',
+				data: {
+					// 'zixuntype': id
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.toutiao;
+						var html = tmpl.render(data);
+						$("#html_newsDesc").html(html);
+					}
+				}
+			});
+		}
+
+		function newTuijian(newId) {
+			var tmpl = $.templates("#J_tpl_newTuijian");
+			$.ajax({
+				url: api + 'ykInformation/tuijian',
+				type: 'POST',
+				data: {
+					id: newId
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					var data = res.ykInformations;
+					var html = tmpl.render(data);
+					$("#html_newTuijian").html(html);
 				}
 			});
 		}

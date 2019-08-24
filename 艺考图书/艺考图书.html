@@ -94,10 +94,6 @@
 		$('.type-wrap .item').on('click', function() {
 			$(this).addClass('active').siblings(".item").removeClass('active');
 		});
-		// var type=parseURL().type||'';
-		// var pid=parseURL().pid||'';
-		// var id=parseURL().id;
-		// getBooks(type,pid);
 		getBooks();
 		function getBooks(type,pid) {
 			var tmpl = $.templates("#J_tpl_books");

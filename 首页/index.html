@@ -85,63 +85,40 @@
 		<!-- 公共title -->
 		<div class="title-wrap clearfix w">
 			<div class="title">艺考咨讯</div>
-			<div class="more tab">
-				<span class="tab-item active">影视编导</span>
-				<span class="tab-item">播音主持</span>
-				<span class="tab-item"> 表演</span>
-				<span class="tab-item">音乐</span>
-			</div>
+			<div id="html_newsType" class="more"></div>
 		</div>
 		<!-- tab-content -->
 		<div class="tab-c w relative">
-			<div class="ad w clearfix">
-				<div class="time left">
-					<div class="month">02-07</div>
-					<div class="year">2019</div>
-				</div>
-				<img class="ad-img left" src="../img/biandao.png">
-				<div class="txt right">
-					<div class="title">每个艺术生都有一个美院梦</div>
-					<p class="des">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔</p>
-				</div>
-				<div class="shuline">
-					<div class="relative">
-						<div class="circle circle1"></div>
-						<div class="circle circle2"></div>
-						<div class="circle circle3"></div>
-						<div class="circle circle4"></div>
-					</div>
-				</div>
-			</div>
+			<div id="html_newsDesc_first" class="ad w clearfix"></div>
 			<!-- 历程 -->
-			<div class="flow-wrap clearfix">
+			<div id="html_newsDesc" class="flow-wrap clearfix">
 				<div class="left">
 					<div class="flow-item">
-						<div class="title">每个艺术生都有一个美院梦</div>
-						<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+						<div class="title c0 title2" >每个艺术生都有一个美院梦</div>
+						<p class="desc desc2">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
 					</div>
 					<div class="flow-item">
-						<div class="month tr">12-01</div>
-						<div class="year tr">2019</div>
+						<div class="month tr month3">11-01</div>
+						<div class="year tr year3">2011</div>
 					</div>
 					<div class="flow-item">
-						<div class="title">每个艺术生都有一个美院梦</div>
-						<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+						<!-- <div class="title c0 title3">每个艺术生都有一个美院梦</div>
+						<p class="desc desc3">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p> -->
 					</div>
 				</div>
 				<div class="right">
 					<div class="flow-item">
-						<div class="month ">12-01</div>
-						<div class="year ">2019</div>
+						<div class="month month2">12-01</div>
+						<div class="year year2">2019</div>
 					</div>
 					<div class="flow-item">
-						<div class="title">每个艺术生都有一个美院梦</div>
-						<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+						<div class="title c0 title3">每个艺术生都有一个美院梦</div>
+						<p class="desc desc3">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
 					</div>
-					<div class="flow-item">
+					<!-- <div class="flow-item">
 						<div class="month ">12-11</div>
 						<div class="year ">2019</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -152,14 +129,7 @@
 		</div>
 		<!-- 轮播图 -->
 		<div class="swiper-container lunbo-wrap w " style="width:1100px;">
-			<div id="html_school" class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a href='../合作艺校/合作艺校.html' class="item">
-						<img src="../img/top.png">
-						<div class="school">北影艺考1</div>
-					</a>
-				</div>
-			</div>
+			<div id="html_school" class="swiper-wrapper"></div>
 			<!-- Add Pagination -->
 			<div class="swiper-pagination"></div>
 			<!-- Add Arrows -->
@@ -186,8 +156,64 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/x-jsrender" id="J_tpl_newsType">
+		{{if #getIndex()==0}}
+		<span class="tab-item active" data-id="{{:id}}">{{:name}}</span>
+		{{else}}
+		<span class="tab-item" data-id="{{:id}}">{{:name}}</span>
+		{{/if}}
+	</script>
+	<script type="text/x-jsrender" id="J_tpl_newsDesc_first">
+		<div class="time left">
+				<div class="month firstMonth">02-07</div>
+				<div class="year firstYear">2019</div>
+			</div>
+			<img class="ad-img left" src="{{:photo}}">
+			<div class="txt right">
+				<div class="title">{{:title}}</div>
+				<div class="des descHideImg">{{:content}}</div>
+			</div>
+			<div class="shuline">
+				<div class="relative">
+					<div class="circle circle1"></div>
+					<div class="circle circle2"></div>
+					<div class="circle circle3"></div>
+					<!-- <div class="circle circle4"></div> -->
+				</div>
+			</div>
+	</script>
+	<script type="text/x-jsrender" id="J_tpl_newsDesc">
+		<div class="left">
+				<div class="flow-item">
+					<div class="title">每个艺术生都有一个美院梦</div>
+					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+				</div>
+				<div class="flow-item">
+					<div class="month tr">12-01</div>
+					<div class="year tr">2019</div>
+				</div>
+				<div class="flow-item">
+					<div class="title">每个艺术生都有一个美院梦</div>
+					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+				</div>
+			</div>
+			<div class="right">
+				<div class="flow-item">
+					<div class="month ">12-01</div>
+					<div class="year ">2019</div>
+				</div>
+				<div class="flow-item">
+					<div class="title">每个艺术生都有一个美院梦</div>
+					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+				</div>
+				<div class="flow-item">
+					<div class="month ">12-11</div>
+					<div class="year ">2019</div>
+				</div>
+			</div>
+	</script>
 	<script type="text/x-jsrender" id="J_tpl_class">
-		<a href="../招生方案/招生方案-编导精英班.html?type={{:type}}&pid={{:pid}}" class="item">
+		<a href="../招生方案/招生方案-文学艺术常识.html?id={{:id}}" class="item">
 				<div class="cover-bg">
 					<img class="img" src="{{:photo}}" alt="">
 					<div class="type">{{:title}}</div>

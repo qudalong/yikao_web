@@ -136,10 +136,10 @@ input {
 }
 
 .detail {
-	padding-top: 15px;
 	display: flex;
 	align-items: center;
 	border-bottom: 1px solid #f3f2f2;
+	padding: 10px 0;
 }
 
 .detail .frist {
