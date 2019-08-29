@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>艺考图书</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	</head>
+
+	<body>
+		<!--头部 -->
+		<div class="header-wrap w clearfix">
+			<img class="logo" src="../img/logo.png" alt="">
+			<img class="txt" src="../img/mx.png" alt="">
+			<div class="tel">
+				<img class="phone" src="../img/phone.png" alt="">
+				<div class="number">
+					<img class="t24" src="../img/24.png" alt="">
+					<img src="../img/400.png" alt="">
+				</div>
+			</div>
+		</div>
+		<!-- 导航 -->
+		<div class="nav-wrap">
+			<div class="nav w">
+				<a href="../sy/sy.html">首页</a>
+				<a href="../zsfa/zsfa.html">招生方案</a>
+				<a href="../ykts/ykts.html" class="active">艺考图书</a>
+				<a href="../ykzx/ykzx.html">艺考咨讯</a>
+				<a href="../zsjz/zsjz.html">高校招生简章</a>
+				<a href="../hzyx/hzyx.html">合作艺校</a>
+				<a href="../lxwm/lxwm.html">联系我们</a>
+			</div>
+		</div>
+		<!-- 公共title -->
+		<div class="title-wrap clearfix w bor0">
+			<div class="more">当前位置：<a href="../sy/sy.html">首页</a>><a href="" class="posi">艺考图书</a></div>
+		</div>
+		<div class="title-wrap clearfix w">
+			<div class="title">艺考图书</div>
+		</div>
+		<!-- 筛选条件 -->
+		<div class="flter-wrap w clearfix">
+			<div class="type-wrap left">
+				<span class="item active">综合排序</span>
+				<span class="item">销量</span>
+				<span class="item">信用</span>
+				<span class="item">价格 v</span>
+			</div>
+			<div class="up-down right"><span class="up">
+					<</span> <span class="cur">1
+				</span>/100<span class="down"> ></span>
+			</div>
+		</div>
+		<!-- 艺考图书 -->
+		<div class="book-list clearfix ">
+			<div id="html_books" class="w clearfix"></div>
+		</div>
+
+		<!-- footer -->
+		<div class="footer-wrap clearfix">
+			<div class="footer clearfix">
+				<img class="left ewm1" src="../img/ewm1.png">
+				<img class="left ewm2" src="../img/ewm2.png">
+				<div class="adress right">
+					<div class="row">
+						<a href="../sy/index.html">返回首页</a>
+						<a href="">加入收藏</a>
+					</div>
+					<div class="row">联系方式：400-888-8888</div>
+					<div class="row">邮 箱：yichuantianxia@qq.com</div>
+					<div class="row">地 址：河南省郑州市高新区中原广告产业园</div>
+				</div>
+			</div>
+			<div class="copy">
+				版权所有：归艺传天下所有ＣＯＰＹＲＩＧＨＴ　ｗｗｗ．ｃａｔ－ｈｈｈ．ｃｏｍ　　ＡＬＬ　Ｒｉｇｈｔｓ　Ｒｅｓｅｒｖｅｄ　豫ＩＣＰ备88888888号－8
+			</div>
+		</div>
+	</body>
+	<script type="text/x-jsrender" id="J_tpl_books">
+			<a href="../ykts/ykts-xq.html?id={{:id}}" class="item">
+					<img src="{{:photo}}" alt="" width="185" height="234">
+					<div class="price">
+						<span class='now'>￥{{:price}}元</span>
+						<span class='old'>{{:preferential}}</span>
+					</div>
+					<div class="details ellipsis" style="height: 20px;overflow: hidden;">{{:details}}</div>
+				</a>   
+	</script>
+	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$('.type-wrap .item').on('click', function() {
+			$(this).addClass('active').siblings(".item").removeClass('active');
+		});
+		getBooks();
+		function getBooks(type,pid) {
+			var tmpl = $.templates("#J_tpl_books");
+			$.ajax({
+				url: api + 'ykGoods/list',
+				type: 'POST',
+				data: {
+					type: 3,
+					pid: ''
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					var data = res.rows;
+					var html = tmpl.render(data);
+					$("#html_books").html(html);
+				}
+			});
+		}
+	</script>
+</html>

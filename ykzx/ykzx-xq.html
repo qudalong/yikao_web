@@ -23,13 +23,13 @@
 		<!-- 导航 -->
 		<div class="nav-wrap">
 			<div class="nav w">
-				<a href="../首页/index.html">首页</a>
-				<a href="../招生方案/招生方案.html">招生方案</a>
-				<a href="../艺考图书/艺考图书.html">艺考图书</a>
-				<a href="../艺考咨讯/艺考咨讯.html" class="active">艺考咨讯</a>
-				<a href="../招生简章/招生简章.html">高校招生简章</a>
-				<a href="../合作艺校/合作艺校.html">合作艺校</a>
-				<a href="../联系我们/联系我们.html">联系我们</a>
+				<a href="../sy/sy.html">首页</a>
+				<a href="../zsfa/zsfa.html">招生方案</a>
+				<a href="../ykts/ykts.html">艺考图书</a>
+				<a href="../ykzx/ykzx.html" class="active">艺考咨讯</a>
+				<a href="../zsjz/zsjz.html">高校招生简章</a>
+				<a href="../hzyx/hzyx.html">合作艺校</a>
+				<a href="../lxwm/lxwm.html">联系我们</a>
 			</div>
 		</div>
 		<!-- 广告图 -->
@@ -37,17 +37,18 @@
 			<img src="../img/re.png" width="100%" alt="">
 		</div>
 		<!-- 公共title -->
-		<div class="title-wrap clearfix w" style="border:none">
-			<div class="more">当前位置：<a href="../首页/index.html">首页</a>><a href="" class="posi">艺考资讯</a></div>
+		<div class="title-wrap clearfix w bor0">
+			<div class="more">当前位置：<a href="../sy/sy.html">首页</a>><a href="" class="posi">新闻详情</a></div>
 		</div>
+		<!-- 新闻详情 -->
+		<div id='html_newsDesc' class="news-wrap w"></div>
 		<!-- 公共title -->
 		<div class="title-wrap clearfix w">
-			<div class="title">艺考资讯</div>
-			<div id="html_newsType" class="more"></div>
+			<div class="title">推荐新闻</div>
 		</div>
 		<!-- 资讯列表 -->
-		<div id="html_news" class="message-list w ">
-			<a href="艺考咨讯-详情.html" class="item clearfix">
+		<div id="html_newTuijian" class="message-list w ">
+			<a href="" class="item clearfix">
 				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
 				<div class="mes-desc right">
 					<div class="time">2019-12-27</div>
@@ -63,7 +64,7 @@
 				<img class="left ewm2" src="../img/ewm2.png">
 				<div class="adress right">
 					<div class="row">
-						<a href="../首页/index.html">返回首页</a>
+						<a href="../sy/index.html">返回首页</a>
 						<a href="">加入收藏</a>
 					</div>
 					<div class="row">联系方式：400-888-8888</div>
@@ -76,70 +77,84 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/x-jsrender" id="J_tpl_newsType">
-		{{if #getIndex()==0}}
-		<span class="tab-a active" data-id="{{:id}}">{{:name}}</span>
-		{{else}}
-		<span class="tab-a" data-id="{{:id}}">{{:name}}</span>
-		{{/if}}
+	<script type="text/x-jsrender" id="J_tpl_newsDesc">
+		<div class="new-title">{{:title}}</div>
+		<div class="news-time">{{:createtime}}</div>
+		<div class="new-desc">{{:content}}</div>
 	</script>
-	<script type="text/x-jsrender" id="J_tpl_news">
-		<a href="艺考咨讯-详情.html?id={{:id}}" class="item clearfix">
+	<script type="text/x-jsrender" id="J_tpl_newTuijian">
+		<a href="ykzx-xq.html?id={{:id}}" class="item clearfix">
 			<img class="left" src="{{:photo}}" width="343" height="199" alt="">
 			<div class="mes-desc right">
 				<div class="time">{{:createtime}}</div>
 				<div class="title">{{:title}}</div>
 				<p class="desc">{{:content}}</p>
 			</div>
-		</a>  
+		</a>
 	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$('.more').on('click', '.tab-a', function() {
-			$(this).addClass('active').siblings(".tab-a").removeClass('active');
-			var id = $(this).attr("data-id");
-			getNewsList(id);
-		});
-		
-		getNewsType();
-		getNewsList(1);
+		var newsId = parseURL().id;
+		console.log('newsId=' + newsId);
+		getNewsType(newsId);
+		newTuijian(newsId);
 
-		function getNewsType() {
-			var tmpl = $.templates("#J_tpl_newsType");
+		function getNewsType(newsId) {
+			var tmpl = $.templates("#J_tpl_newsDesc");
 			$.ajax({
-				url: api + 'ykInformationType/list',
-				type: 'POST',
-				data: {},
-				dataType: 'JSON',
-				success: function(res) {
-					if (res.code == 0) {
-						var data = res.rows;
-						var html = tmpl.render(data);
-						$("#html_newsType").html(html);
-					}
-				}
-			});
-		}
-
-		function getNewsList(id) {
-			var tmpl = $.templates("#J_tpl_news");
-			$.ajax({
-				url: api + 'ykInformation/list',
+				url: api + 'ykInformation/info',
 				type: 'POST',
 				data: {
-					'zixuntype': id
+					id: newsId
 				},
 				dataType: 'JSON',
 				success: function(res) {
 					if (res.code == 0) {
-						var data = res.rows;
+						var data = res.ykInformation;
 						var html = tmpl.render(data);
-						$("#html_news").html(html);
+						$("#html_newsDesc").html(html);
 					}
 				}
 			});
 		}
+		//新闻推荐
+		function getNewsList(id) {
+			var tmpl = $.templates("#J_tpl_newsDesc");
+			$.ajax({
+				url: api + 'ykInformation/list',
+				type: 'POST',
+				data: {
+					// 'zixuntype': id
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == 0) {
+						var data = res.toutiao;
+						var html = tmpl.render(data);
+						$("#html_newsDesc").html(html);
+					}
+				}
+			});
+		}
+
+		function newTuijian(newId) {
+			var tmpl = $.templates("#J_tpl_newTuijian");
+			$.ajax({
+				url: api + 'ykInformation/tuijian',
+				type: 'POST',
+				data: {
+					id: newId
+				},
+				dataType: 'JSON',
+				success: function(res) {
+					var data = res.ykInformations;
+					var html = tmpl.render(data);
+					$("#html_newTuijian").html(html);
+				}
+			});
+		}
 	</script>
+
 </html>

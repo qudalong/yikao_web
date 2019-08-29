@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>艺考图书</title>
+		<title>招生方案</title>
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
 	</head>
 
@@ -23,40 +23,28 @@
 		<!-- 导航 -->
 		<div class="nav-wrap">
 			<div class="nav w">
-				<a href="../首页/index.html">首页</a>
-				<a href="../招生方案/招生方案.html">招生方案</a>
-				<a href="../艺考图书/艺考图书.html" class="active">艺考图书</a>
-				<a href="../艺考咨讯/艺考咨讯.html">艺考咨讯</a>
-				<a href="../招生简章/招生简章.html">高校招生简章</a>
-				<a href="../合作艺校/合作艺校.html">合作艺校</a>
-				<a href="../联系我们/联系我们.html">联系我们</a>
+				<a href="../sy/sy.html">首页</a>
+				<a href="../zsfa/zsfa.html" class="active">招生方案</a>
+				<a href="../ykts/ykts.html">艺考图书</a>
+				<a href="../ykzx/ykzx.html">艺考咨讯</a>
+				<a href="../zsjz/zsjz.html">高校招生简章</a>
+				<a href="../hzyx/hzyx.html">合作艺校</a>
+				<a href="../lxwm/lxwm.html">联系我们</a>
 			</div>
+		</div>
+		<!-- 广告图 -->
+		<div class="banner-wrap">
+			<img src="../img/151305076786.png" width="100%" alt="">
 		</div>
 		<!-- 公共title -->
 		<div class="title-wrap clearfix w bor0">
-			<div class="more">当前位置：<a href="../首页/index.html">首页</a>><a href="" class="posi">艺考图书</a></div>
-		</div>
+			<div class="more">当前位置：<a href="../sy/sy.html">首页</a>><a href="" class="posi">招生方案</a></div>
+		</div>	
 		<div class="title-wrap clearfix w">
-			<div class="title">艺考图书</div>
+			<div class="title">招生方案</div>
 		</div>
-		<!-- 筛选条件 -->
-		<div class="flter-wrap w clearfix">
-			<div class="type-wrap left">
-				<span class="item active">综合排序</span>
-				<span class="item">销量</span>
-				<span class="item">信用</span>
-				<span class="item">价格 v</span>
-			</div>
-			<div class="up-down right"><span class="up">
-					<</span> <span class="cur">1
-				</span>/100<span class="down"> ></span>
-			</div>
-		</div>
-		<!-- 艺考图书 -->
-		<div class="book-list clearfix ">
-			<div id="html_books" class="w clearfix"></div>
-		</div>
-
+		<!-- 信息列表 -->
+		<div id="html_class" class="info-list clearfix w"></div>
 		<!-- footer -->
 		<div class="footer-wrap clearfix">
 			<div class="footer clearfix">
@@ -64,7 +52,7 @@
 				<img class="left ewm2" src="../img/ewm2.png">
 				<div class="adress right">
 					<div class="row">
-						<a href="../首页/index.html">返回首页</a>
+						<a href="../sy/index.html">返回首页</a>
 						<a href="">加入收藏</a>
 					</div>
 					<div class="row">联系方式：400-888-8888</div>
@@ -77,40 +65,45 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/x-jsrender" id="J_tpl_books">
-			<a href="../艺考图书/艺考图书-详情.html?id={{:id}}" class="item">
-					<img src="{{:photo}}" alt="" width="185" height="234">
+	<script type="text/x-jsrender" id="J_tpl_class">
+			<a href="../zsfa/zsfa-bdjyb.html?type={{:type}}&pid={{:pid}}" class="item">
+					<div class="cover-bg">
+						<img class="img" src="{{:photo}}" alt="">
+						<div class="type">{{:title}}</div>
+					</div>
 					<div class="price">
 						<span class='now'>￥{{:price}}元</span>
 						<span class='old'>{{:preferential}}</span>
 					</div>
-					<div class="details ellipsis" style="height: 20px;overflow: hidden;">{{:details}}</div>
+					<div class="details ellipsis3" style="height: 56px;overflow: hidden;">{{:details}}</div>
 				</a>   
 	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		$('.type-wrap .item').on('click', function() {
-			$(this).addClass('active').siblings(".item").removeClass('active');
-		});
-		getBooks();
-		function getBooks(type,pid) {
-			var tmpl = $.templates("#J_tpl_books");
+		// parseURL();
+		getClass();
+		function getClass() {
+			var tmpl = $.templates("#J_tpl_class");
 			$.ajax({
 				url: api + 'ykGoods/list',
 				type: 'POST',
 				data: {
-					type: 3,
-					pid: ''
+					type:1,
+					pid:''
 				},
 				dataType: 'JSON',
 				success: function(res) {
-					var data = res.rows;
-					var html = tmpl.render(data);
-					$("#html_books").html(html);
+					if (res.code == 0) {
+						var data = res.rows;
+						var html = tmpl.render(data);
+						$("#html_class").html(html);
+					}
 				}
 			});
 		}
+		
+		
 	</script>
 </html>

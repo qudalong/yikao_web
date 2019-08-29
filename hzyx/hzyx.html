@@ -3,8 +3,10 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>招生方案</title>
+		<title>合作艺校</title>
+		<link rel="stylesheet" type="text/css" href="../css/coll.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/jquery.js"></script>
 	</head>
 
 	<body>
@@ -23,28 +25,26 @@
 		<!-- 导航 -->
 		<div class="nav-wrap">
 			<div class="nav w">
-				<a href="../首页/index.html">首页</a>
-				<a href="../招生方案/招生方案.html" class="active">招生方案</a>
-				<a href="../艺考图书/艺考图书.html">艺考图书</a>
-				<a href="../艺考咨讯/艺考咨讯.html">艺考咨讯</a>
-				<a href="../招生简章/招生简章.html">高校招生简章</a>
-				<a href="../合作艺校/合作艺校.html">合作艺校</a>
-				<a href="../联系我们/联系我们.html">联系我们</a>
+				<a href="../sy/sy.html">首页</a>
+				<a href="../zsfa/zsfa.html">招生方案</a>
+				<a href="../ykts/ykts.html">艺考图书</a>
+				<a href="../ykzx/ykzx.html">艺考咨讯</a>
+				<a href="../zsjz/zsjz.html">高校招生简章</a>
+				<a href="../hzyx/hzyx.html" class="active">合作艺校</a>
+				<a href="../lxwm/lxwm.html">联系我们</a>
 			</div>
 		</div>
-		<!-- 广告图 -->
-		<div class="banner-wrap">
-			<img src="../img/151305076786.png" width="100%" alt="">
-		</div>
+		<img src="../img/02.png" alt="" width="100%">
 		<!-- 公共title -->
-		<div class="title-wrap clearfix w bor0">
-			<div class="more">当前位置：<a href="../首页/index.html">首页</a>><a href="" class="posi">招生方案</a></div>
-		</div>	
-		<div class="title-wrap clearfix w">
-			<div class="title">招生方案</div>
+		<div class="center w">
+			<div class="title-wrap clearfix w" style="border:none">
+				<div class="more">当前位置：<a href="../sy/sy.html">首页</a>><a href="" class="posi">艺考资讯</a></div>
+			</div>
 		</div>
-		<!-- 信息列表 -->
-		<div id="html_class" class="info-list clearfix w"></div>
+		<div class="title-wrap clearfix w">
+			<div class="title">合作艺校</div>
+		</div>
+		<div id="html_school" class="college w"></div>
 		<!-- footer -->
 		<div class="footer-wrap clearfix">
 			<div class="footer clearfix">
@@ -52,7 +52,7 @@
 				<img class="left ewm2" src="../img/ewm2.png">
 				<div class="adress right">
 					<div class="row">
-						<a href="../首页/index.html">返回首页</a>
+						<a href="../sy/index.html">返回首页</a>
 						<a href="">加入收藏</a>
 					</div>
 					<div class="row">联系方式：400-888-8888</div>
@@ -65,45 +65,36 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/x-jsrender" id="J_tpl_class">
-			<a href="../招生方案/招生方案-编导精英班.html?type={{:type}}&pid={{:pid}}" class="item">
-					<div class="cover-bg">
-						<img class="img" src="{{:photo}}" alt="">
-						<div class="type">{{:title}}</div>
-					</div>
-					<div class="price">
-						<span class='now'>￥{{:price}}元</span>
-						<span class='old'>{{:preferential}}</span>
-					</div>
-					<div class="details ellipsis3" style="height: 56px;overflow: hidden;">{{:details}}</div>
-				</a>   
+	<script type="text/x-jsrender" id="J_tpl_school">
+		<a href="hzyx-xq.html?id={{:id}}">
+		    <div class="ykxy">
+		        <img src="{{:photo}}" alt="" width="100%">
+		        <p class="txt">{{:name}}</p>
+		        <p class="txt1 ellipsis3">{{:details}}</p>
+		        <span><img src="../img/zj.png" alt=""></span>
+		    </div>
+		</a>
 	</script>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		// parseURL();
-		getClass();
-		function getClass() {
-			var tmpl = $.templates("#J_tpl_class");
+		getSchool();
+
+		function getSchool() {
+			var tmpl = $.templates("#J_tpl_school");
 			$.ajax({
-				url: api + 'ykGoods/list',
+				url: api + 'ykSchoolCooperation/list',
 				type: 'POST',
-				data: {
-					type:1,
-					pid:''
-				},
+				data: {},
 				dataType: 'JSON',
 				success: function(res) {
 					if (res.code == 0) {
 						var data = res.rows;
 						var html = tmpl.render(data);
-						$("#html_class").html(html);
+						$("#html_school").html(html);
 					}
 				}
 			});
 		}
-		
-		
 	</script>
-</html>

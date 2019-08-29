@@ -9,6 +9,15 @@
 	border-radius: 50%;
 }
 
+.item .details img {
+	display: none;
+}
+
+.heigh {
+	height: 55px;
+	overflow: hidden;
+}
+
 .chuxiao {
 	color: red;
 }
@@ -405,16 +414,18 @@ a {
 	margin: 20px 20px 0 0;
 }
 
-.book-list .item:hover img {
+/* .book-list .item:hover img {
 	transform: scale(1.05);
+} */
+.class-desc img{
+	display:none;
 }
-
 .book-list .item:nth-child(4n) {
 	margin-right: 0;
 }
 
 .book-list .item img {
-	transition: all 1s;
+	/* transition: all 1s; */
 	display: inline-block;
 }
 

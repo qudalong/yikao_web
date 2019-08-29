@@ -16,16 +16,18 @@ $('#html_newsType').on('click', '.tab-item', function() {
 	$(this).addClass('active').siblings(".tab-item").removeClass('active');
 	var id = $(this).attr("data-id");
 	getNewsList_first(id)
-	getNewsList(id);
+	// getNewsList(id);
 });
 
 getNewsList_first(1)
 getClass_remen();
-// getClass();
 getBooks();
 getSchool();
 getNewsType();
-getNewsList(1);
+
+
+// getClass();
+// getNewsList(1);
 
 function getNewsList_first(id) {
 	var tmpl = $.templates("#J_tpl_newsDesc_first");
@@ -41,9 +43,9 @@ function getNewsList_first(id) {
 			if (res.code == 0) {
 				// 第一条
 				var data = res.toutiao[0];
-				var createtime=data.createtime.split(' ')[0];
-				var month=createtime.substr(5,7);
-				var year=createtime.substr(0,4);
+				var createtime = data.createtime.split(' ')[0];
+				var month = createtime.substr(5, 7);
+				var year = createtime.substr(0, 4);
 				console.log(month);
 				console.log(year);
 				console.log(createtime);
@@ -53,22 +55,22 @@ function getNewsList_first(id) {
 				$('.firstYear').html(year);
 				//第二条
 				var data = res.toutiao[1];
-				var title2=data.title;
-				var desc2=data.content;
-				var createtime2=data.createtime.split(' ')[0];
-				var month2=createtime2.substr(5,7);
-				var year2=createtime2.substr(0,4);
+				var title2 = data.title;
+				var desc2 = data.content;
+				var createtime2 = data.createtime.split(' ')[0];
+				var month2 = createtime2.substr(5, 7);
+				var year2 = createtime2.substr(0, 4);
 				$('.title2').html(title2);
 				$('.desc2').html(desc2);
 				$('.month2').html(month2);
-				$('.year2').html(year2);	
+				$('.year2').html(year2);
 				//第3条
 				var data = res.toutiao[2];
-				var title3=data.title;
-				var desc3=data.content;
-				var createtime3=data.createtime.split(' ')[0];
-				var month3=createtime3.substr(5,7);
-				var year3=createtime3.substr(0,4);
+				var title3 = data.title;
+				var desc3 = data.content;
+				var createtime3 = data.createtime.split(' ')[0];
+				var month3 = createtime3.substr(5, 7);
+				var year3 = createtime3.substr(0, 4);
 				$('.title3').html(title3);
 				$('.desc3').html(desc3);
 				$('.month3').html(month3);
@@ -120,7 +122,7 @@ function getClass_remen() {
 		url: api + 'ykGoods/remen',
 		type: 'POST',
 		data: {
-			free:1
+			free: 1
 		},
 		dataType: 'JSON',
 		success: function(res) {
@@ -132,6 +134,7 @@ function getClass_remen() {
 		}
 	});
 }
+
 function getClass() {
 	var tmpl = $.templates("#J_tpl_class");
 	$.ajax({
