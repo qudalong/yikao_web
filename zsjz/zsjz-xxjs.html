@@ -6,7 +6,11 @@
 		<title>招生简章-学校介绍</title>
 		<link rel="stylesheet" type="text/css" href="../css/introduce.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<script src="../js/jquery.js"></script>
+		<style type="text/css">
+			.duce:hover{
+				opacity: 0.8;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -62,10 +66,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="title-wrap clearfix w">
+			<!-- 	<div class="title-wrap clearfix w">
 				<div class="title">2019年招生专业详情</div>
-			</div>
-			<div class="list">
+			</div> -->
+			<!-- 	<div class="list">
 				<p class="active">全部</p>
 				<p>2019年简章</p>
 				<p>影视编导</p>
@@ -79,7 +83,8 @@
 				<p>书法</p>
 				<p>空乘</p>
 			</div>
-			<div class="zcys">
+		 -->
+			<!-- <div class="zcys">
 				<div class="induce">
 					<p class="txt3">.</p>
 					<p class="txt4">播音与主持艺术</p>
@@ -97,92 +102,57 @@
 					<p class="txt4">播音与主持艺术（双语播音）</p>
 				</div>
 			</div>
+		 -->
 			<div class="title-wrap clearfix w">
 				<div class="title">学校概况</div>
-				<div class="number">
-					<p>院校类型：语言</p>
-					<!-- <p>院校性质：公办</p>
-                <p>录取批次：本科提前批</p>
-                <p>招收人数：1910人</p> -->
-				</div>
+			</div>
+			<div class="type">
+				<!-- <p>院校类型：<span id="lx"></span>语言</p> -->
+				<p>院校性质：<span id="xz"></span></p>
+				<p>录取批次：<span id="pc"></span></p>
+				<p>招收人数：<span id="rs"></span>人</p>
 			</div>
 		</div>
 		<div class="bottom w">
 			<div class="title-wrap clearfix w">
 				<div class="title">最新消息</div>
 			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
+			<div id="zuixinMsg"></div>
 			<div class="title-wrap clearfix w">
 				<div class="title">历年参考分数线</div>
 			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
+			<div id="chankaoMsg"></div>
 			<div class="title-wrap clearfix w">
-				<div class="title">最新消息</div>
+				<div class="title">历年招生简章</div>
 			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
-			<div class="duce">
-				<p class="txt3">.</p>
-				<p class="txt4">2018年艺术类本科其他类专业高考录取分数线</p>
-				<p class="txt5">2019-08-08 </p>
-			</div>
+			<div id="zhaoshengMsg"></div>
 		</div>
 
 	</body>
 	<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/jsrender.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/x-jsrender" id="J_tpl_1">
+		<a href="zsjz-xxjs_desc.html?id={{:id}}" class="duce">
+			<p class="txt3">.</p>
+			<p class="txt4">{{:details}}</p>
+			<p class="txt5">{{:createTime}}</p>
+		</a>
+	</script>
+	<script type="text/x-jsrender" id="J_tpl_2">
+		<a href="zsjz-xxjs_desc.html?id={{:id}}" class="duce">
+			<p class="txt3">.</p>
+			<p class="txt4">{{:details}}</p>
+			<p class="txt5">{{:createTime}}</p>
+		</a>
+	</script>
+	<script type="text/x-jsrender" id="J_tpl_3">
+		<a href="zsjz-xxjs_desc.html?id={{:id}}" class="duce">
+			<p class="txt3">.</p>
+			<p class="txt4">{{:details}}</p>
+			<p class="txt5">{{:createTime}}</p>
+		</a>
+	</script>
 	<script type="text/x-jsrender" id="J_tpl_zhaosheng">
 		<a href="zsjz-xxjs.html">
 			<div class="detail">
@@ -206,6 +176,43 @@
 			});
 			var id = parseURL().id;
 			schoolInfo(id);
+			ykSchoolNew(id, '最新消息');
+			ykSchoolNew(id, '历年参考分数线');
+			ykSchoolNew(id, '历年招生简章');
+
+			function ykSchoolNew(sId, type) {
+				if (type == '最新消息') {
+					var tmpl1 = $.templates("#J_tpl_1");
+				} else if (type == '历年参考分数线') {
+					var tmpl2 = $.templates("#J_tpl_2");
+				} else if (type == '历年招生简章') {
+					var tmpl3 = $.templates("#J_tpl_3");
+				}
+				$.ajax({
+					url: api + 'ykSchoolNew/list',
+					type: 'POST',
+					data: {
+						sId: sId, //	高校id
+						type: type //	类型 最新消息 历年参
+					},
+					dataType: 'JSON',
+					success: function(res) {
+						if (res.code == 0) {
+							var data = res.YkSchoolNews;
+							if (type == '最新消息') {
+								var html1 = tmpl1.render(data);
+								$("#zuixinMsg").html(html1);
+							} else if (type == '历年参考分数线') {
+								var html2 = tmpl2.render(data);
+								$("#chankaoMsg").html(html2);
+							} else if (type == '历年招生简章') {
+								var html3 = tmpl3.render(data);
+								$("#zhaoshengMsg").html(html3);
+							}
+						}
+					}
+				});
+			}
 
 			function schoolInfo(id) {
 				var tmpl = $.templates("#J_tpl_books");
@@ -222,13 +229,18 @@
 						sessionStorage.setItem('schoolName', data.name);
 						sessionStorage.setItem('schoolDesc', data.details);
 						sessionStorage.setItem('updatetime', data.updatetime);
-						sessionStorage.setItem('createuser', data.createuser);
+						sessionStorage.setItem('createuser', data.laiyuan);
 						$('#schoolHead').attr('src', data.photo);
 						$('#schoolName').html(data.name);
 						$('#schoolDesc').html(data.details.substr(0, 200));
 						$('#addr').html(data.addr);
 						$('#phone').html(data.phone);
 						$('#website').html(data.website);
+						// 学校概况
+						// $('#lx').html(data.website);
+						$('#xz').html(data.nature);
+						$('#pc').html(data.batch);
+						$('#rs').html(data.peoplenum);
 						var html = tmpl.render(data);
 						$("#html_books").html(html);
 					}

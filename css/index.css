@@ -8,7 +8,12 @@
 	height: 150px;
 	border-radius: 50%;
 }
-
+.duce{
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: flex-start;
+}
 .item .details img {
 	display: none;
 }
