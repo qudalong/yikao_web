@@ -2,11 +2,29 @@
 	padding: 0;
 	margin: 0;
 }
-
+.hover{
+	border: 1px solid #fff;
+}
+.hover:hover{
+	border: 1px solid red !important;
+}
+ .title-wrap .more:hover{
+	 opacity: 0.6;
+ }
+.maxH{
+	max-height: 64px;
+	overflow: hidden;
+}
+.line{
+	line-height: 21px;
+}
 .schoolImg {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
+}
+.copy{
+	text-align: center;
 }
 .duce{
 	display: flex;
@@ -15,7 +33,7 @@
 	justify-content: flex-start;
 }
 .item .details img {
-	display: none;
+	display: none !important;
 }
 
 .heigh {

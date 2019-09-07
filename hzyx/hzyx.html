@@ -41,10 +41,10 @@
 				<div class="more">当前位置：<a href="../sy/sy.html">首页</a>><a href="" class="posi">艺考资讯</a></div>
 			</div>
 		</div>
-		<div class="title-wrap clearfix w">
+		<div class="title-wrap clearfix w" style="width: 1000px;">
 			<div class="title">合作艺校</div>
 		</div>
-		<div id="html_school" class="college w"></div>
+		<div id="html_school" class="college w" style="width: 1000px;"></div>
 		<!-- footer -->
 		<div class="footer-wrap clearfix">
 			<div class="footer clearfix">
@@ -66,11 +66,11 @@
 		</div>
 	</body>
 	<script type="text/x-jsrender" id="J_tpl_school">
-		<a href="hzyx-xq.html?id={{:id}}">
+		<a href="hzyx-xq.html?id={{:id}}" class="schoolItem">
 		    <div class="ykxy">
-		        <img src="{{:photo}}" alt="" width="100%">
+		        <img src="{{:photo}}" alt="" width="440" height="250" >
 		        <p class="txt">{{:name}}</p>
-		        <p class="txt1 ellipsis3">{{:details}}</p>
+		        <div class="txt1 ellipsis3 maxH">{{:details}}</div>
 		        <span><img src="../img/zj.png" alt=""></span>
 		    </div>
 		</a>

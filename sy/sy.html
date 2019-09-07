@@ -10,7 +10,7 @@
 
 <body>
     <!-- 悬浮框 -->
-    <div class="fixd">
+  <!--  <div class="fixd">
         <div class="item first">
             <img src="../img/kefu.png">
             <div>在线客服</div>
@@ -31,7 +31,7 @@
             <img src="../img/yy.png">
             <div>音乐</div>
         </div>
-        <a href="../首页/index.html" class="item">
+        <a href="./sy.html" class="item">
             <img src="../img/home.png">
             <div>回到首页</div>
         </a>
@@ -40,7 +40,7 @@
             <div>返回顶部</div>
         </div>
     </div>
-    <!--头部 -->
+  -->  <!--头部 -->
     <div class="header-wrap w clearfix">
         <img class="logo" src="../img/logo.png" alt="">
         <img class="txt" src="../img/mx.png" alt="">
@@ -93,9 +93,9 @@
         <!-- 历程 -->
         <div id="html_newsDesc" class="flow-wrap clearfix">
             <div class="left">
-                <div class="flow-item">
+                <div class="flow-item" style="text-align: right;">
                     <div class="title c0 title2">每个艺术生都有一个美院梦</div>
-                    <p class="desc desc2">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+                    <div  class="desc desc2 maxH">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</div>
                 </div>
                 <div class="flow-item">
                     <div class="month tr month3">11-01</div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="flow-item">
                     <div class="title c0 title3">每个艺术生都有一个美院梦</div>
-                    <p class="desc desc3">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</p>
+                    <div class="desc desc3 maxH">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔.....</div>
                 </div>
                 <!-- <div class="flow-item">
 						<div class="month ">12-11</div>
@@ -157,9 +157,7 @@
     </div>
 </body>
 <script type="text/x-jsrender" id="J_tpl_newsType">
-    {{if #getIndex()==0}}
-    <span class="tab-item active" data-id="{{:id}}">{{:name}}</span> {{else}}
-    <span class="tab-item" data-id="{{:id}}">{{:name}}</span> {{/if}}
+   
 </script>
 <script type="text/x-jsrender" id="J_tpl_newsDesc_first">
     <div class="time left">
@@ -169,7 +167,7 @@
     <img class="ad-img left" src="{{:photo}}">
     <div class="txt right">
         <div class="title">{{:title}}</div>
-        <div class="des descHideImg">{{:content}}</div>
+        <div class="des descHideImg maxH">{{:content}}</div>
     </div>
     <div class="shuline">
         <div class="relative">
@@ -211,7 +209,7 @@
     </div>
 </script>
 <script type="text/x-jsrender" id="J_tpl_class">
-    <a href="../zsfa/zsfa-wxyscs.html?id={{:id}}" class="item">
+    <a href="../zsfa/zsfa-wxyscs.html?id={{:id}}" class="item hover">
         <div class="cover-bg">
             <img class="img" src="{{:photo}}" alt="">
             <div class="type">{{:title}}</div>
@@ -220,22 +218,22 @@
             <span class='now'>￥{{:price}}元</span>
             <span class='old'>{{:preferential}}</span>
         </div>
-        <div class="details ellipsis3 heigh">{{:details}}</div>
+        <div class="details ellipsis3 maxH">{{:details}}</div>
     </a>
 </script>
 
 <script type="text/x-jsrender" id="J_tpl_books">
-    <a href="../ykts/ykts-xq.html?id={{:id}}&type={{:type}}&pid={{:pid}}" class="item">
+    <a href="../ykts/ykts-xq.html?id={{:id}}&type={{:type}}&pid={{:pid}}" class="item hover">
         <img src="{{:photo}}" alt="" width="185" height="234">
         <div class="price">
             <span class='now'>￥{{:price}}元</span>
             <span class='old'>{{:preferential}}</span>
         </div>
-        <div class="details ellipsis" style="height: 20px;overflow: hidden;">{{:details}}</div>
+        <div class="details ellipsis maxH" style="overflow: hidden;">{{:details}}</div>
     </a>
 </script>
 <script type="text/x-jsrender" id="J_tpl_school">
-    <div class="swiper-slide">
+    <div class="swiper-slide ">
         <a href='../hzyx/hzyx-xq.html?id={{:id}}' class="item">
             <img src="{{:photo}}">
             <div class="school">{{:name}}</div>

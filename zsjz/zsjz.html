@@ -195,8 +195,8 @@
 			<div class="title-wrap clearfix w">
 				<div class="title">高效招商简章</div>
 				<div class="right" style="font-size: 0;">
-				<input class="search left" type="text" placeholder="搜索">
-				<div class="search-btn left">搜索</div>
+					<input class="search left" type="text" placeholder="搜索">
+					<div class="search-btn left">搜索</div>
 				</div>
 			</div>
 			<div id="html_zhaosheng">
@@ -224,15 +224,17 @@
 
 	</body>
 	<script type="text/x-jsrender" id="J_tpl_zhaosheng">
-		<a href="./zsjz-xxjs.html?id={{:id}}">
-			<div class="detail">
-				<img class="schoolImg" src="{{:photo}}" alt="">
+		<a href="./zsjz-xxjs.html?id={{:id}}" >
+			<div class="detail hover">
+			<div style="height: 150px;width: 150px;">
+				<img class="schoolImg" src="{{:photo}}" alt="" width="150" height="150">
+			</div>
 				<div class="frist">
 					<div class="scxy">
 						<p class="txt ">{{:name}}</p>
 						<span>{{:type}}</span>
 					</div>
-					<div class="txt1">{{:details}}</div>
+					<div class="txt1 maxH">{{:details}}</div>
 					<img src="../img/zj.png" alt="" class="jt">
 				</div>
 			</div>

@@ -46,16 +46,7 @@
 			<div id="html_newsType" class="more"></div>
 		</div>
 		<!-- 资讯列表 -->
-		<div id="html_news" class="message-list w ">
-			<a href="ykzx-xx.html" class="item clearfix">
-				<img class="left" src="../img/biandao.png" width="343" height="199" alt="">
-				<div class="mes-desc right">
-					<div class="time">2019-12-27</div>
-					<div class="title">每个艺术生都有一个美院梦</div>
-					<p class="desc">中国美术学院的前身是国立艺术院。1928年，时任大学院长的蔡元培先生择址杭州西子湖畔，创立了第一所综合性的国立高等艺术学府--国立艺术院，揭开了中国高等美术教育的篇章。作为国内学科最完备、规模最齐整的第一所国立高等美术院校......</p>
-				</div>
-			</a>
-		</div>
+		<div id="html_news" class="message-list w "></div>
 		<!-- footer -->
 		<div class="footer-wrap clearfix">
 			<div class="footer clearfix">
@@ -84,12 +75,12 @@
 		{{/if}}
 	</script>
 	<script type="text/x-jsrender" id="J_tpl_news">
-		<a href="ykzx-xq.html?id={{:id}}" class="item clearfix">
+		<a href="ykzx-xq.html?id={{:id}}" class="item clearfix hover">
 			<img class="left" src="{{:photo}}" width="343" height="199" alt="">
 			<div class="mes-desc right">
 				<div class="time">{{:createtime}}</div>
 				<div class="title">{{:title}}</div>
-				<p class="desc">{{:content}}</p>
+				<div class="desc maxH">{{:content}}</div>
 			</div>
 		</a>  
 	</script>

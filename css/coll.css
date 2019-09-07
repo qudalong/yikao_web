@@ -152,17 +152,26 @@ input{
     width: 24px;
 	height: 12px;
 }
-.ykxy{
-    width: 536px;
-	height: 498px;
+.schoolItem{
+	margin-bottom: 30px;
+	margin-left: 50px;
 	border: solid 1px #f7f7f9;
+}
+.schoolItem:hover{
+	border: solid 1px red;
+}
+.schoolItem:nth-child(2n){
+	margin-left: 40px;
+}
+.ykxy{
+    width:440px;
 }
 .ykxy .txt{
     padding: 10px 0;
     text-align: center;
 }
 .ykxy .txt1{
-    padding: 10px 25px;
+    padding: 0 25px;
     /* text-align: center; */
 }
 .ykxy span{
